@@ -1,6 +1,6 @@
 NAME = push_swap
 FILES := push_swap.c movements/generic.c movements/swap.c movements/rotate.c \
-		 movements/push.c
+		 movements/push.c movements/reverse_rotate.c
 SRCS := $(addprefix sources/, $(FILES));
 OBJS := $(FILES:.c=.o)
 OBJS := $(OBJS:movements/%=%)
