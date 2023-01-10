@@ -6,12 +6,17 @@
 /*   By: dfanucch <dfanucch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:35:24 by dfanucch          #+#    #+#             */
-/*   Updated: 2023/01/10 18:14:55 by dfanucch         ###   ########.fr       */
+/*   Updated: 2023/01/10 20:59:50 by dfanucch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # include <libft.h>
+
+typedef struct s_item {
+	unsigned int	index;
+	int				value;
+}	t_item;
 
 void	ft_rotate(int *stack, int size);
 void	ft_reverse_rotate(int *stack, int size);
