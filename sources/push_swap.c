@@ -60,18 +60,18 @@ void	set_items_indexes(t_item **stack, int size)
 		}
 		i++;
 	}
+	free(ordered);
 }
 
-t_item	**create_stack(int size, char **numbers)
+int	*create_stack(int size, char **numbers)
 {
 	t_item	**stack;
 	t_item	*item;
+	int		*indexes_stack;
 	int		i;
 
 	i = 0;
 	stack = malloc(sizeof(t_item **) * size);
-	if (!stack)
-		return (NULL);
 	while (i < size)
 	{
 		item = malloc(sizeof(t_item));
@@ -80,20 +80,30 @@ t_item	**create_stack(int size, char **numbers)
 		i++;
 	}
 	set_items_indexes(stack, size);
-	return (stack);
+	indexes_stack = malloc(sizeof(int) * size);
+	i = 0;
+	while (i < size)
+	{
+		indexes_stack[i] = stack[i]->index;
+		i++;
+	}
+	return (indexes_stack);
 }
 
 int	main(int argc, char **argv)
 {
-	t_item	**stack;
-	int		stack_size;
+	int	*stack_a;
+	int	*stack_b;
+	int	stack_size;
 
 	if (argc < 2)
 		return (0);
 	validate_argv(argv);
 	stack_size = argc - 1;
-	stack = create_stack(stack_size, argv + 1);
-	if (!stack)
+	stack_a = create_stack(stack_size, argv + 1);
+	stack_b = malloc(sizeof(int) * stack_size);
+	if (!stack_a)
 		return (1);
+	ft_radix(stack_a, stack_b, stack_size, 0);
 	return (0);
 }

@@ -1,4 +1,6 @@
+push_swap_visualizer
 *.o
 push_swap
 .vscode
 *.a
+test
