@@ -6,12 +6,13 @@
 /*   By: dfanucch <dfanucch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:35:24 by dfanucch          #+#    #+#             */
-/*   Updated: 2023/01/10 20:59:50 by dfanucch         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:22:25 by dfanucch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # include <libft.h>
+# include <stdlib.h>
 
 typedef struct s_item {
 	unsigned int	index;
@@ -32,5 +33,6 @@ void	ft_reverse_rotate_a(int *stack, int size);
 void	ft_reverse_rotate_b(int *stack, int size);
 void	ft_reverse_rotate_both(int *stack_a, int *stack_b, int size_a,
 			int size_b);
+void	ft_quick_sort(t_item **stack, int start, int end);
 
 #endif
