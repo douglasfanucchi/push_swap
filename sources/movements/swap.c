@@ -12,7 +12,7 @@
 
 #include <push_swap.h>
 
-void	swap_a(int *stack_a, int size)
+void	ft_swap_a(int *stack_a, int size)
 {
 	if (size < 2)
 		return ;
@@ -20,7 +20,7 @@ void	swap_a(int *stack_a, int size)
 	ft_putstr("sa\n");
 }
 
-void	swap_b(int *stack_b, int size)
+void	ft_swap_b(int *stack_b, int size)
 {
 	if (size < 2)
 		return ;
