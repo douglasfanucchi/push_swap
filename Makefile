@@ -9,7 +9,7 @@ OBJS := $(OBJS:movements/%=%)
 OBJS := $(OBJS:algorithms/%=%)
 LIBS = -lft
 LIB_FLAGS = -Llib/libft -lft
-FLAGS = -Wall -Werror -Wextra -I lib/libft -I./includes
+FLAGS = -Wall -Werror -Wextra -I lib/libft -I./includes -g3
 LIBFT = lib/libft/libft.a
 
 all: | libft

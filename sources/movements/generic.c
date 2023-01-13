@@ -30,7 +30,7 @@ void	ft_reverse_rotate(int *stack, int size)
 	if (size == 0)
 		return ;
 	last = stack[size - 1];
-	ft_memmove(stack + 1, stack, size * sizeof(int));
+	ft_memmove(stack + 1, stack, (size - 1) * sizeof(int));
 	stack[0] = last;
 }
 
