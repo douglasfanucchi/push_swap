@@ -102,8 +102,12 @@ int	main(int argc, char **argv)
 	stack_size = argc - 1;
 	stack_a = create_stack(stack_size, argv + 1);
 	stack_b = malloc(sizeof(int) * stack_size);
-	if (!stack_a)
-		return (1);
+	if (ft_is_ordered(stack_a, stack_size))
+	{
+		free(stack_a);
+		free(stack_b);
+		return (0);
+	}
 	if (stack_size < 6)
 		ft_small_stack_sort(stack_a, stack_b, stack_size, 0);
 	else
