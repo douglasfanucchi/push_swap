@@ -21,7 +21,7 @@ void	validate_argv(char **argv)
 	{
 		if (!ft_is_number(*params))
 		{
-			ft_putstr_fd("Error.\n", 2);
+			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
 		params++;
@@ -54,7 +54,7 @@ void	set_items_indexes(t_item **stack, int size)
 		{
 			free_stack(stack, size);
 			free(ordered);
-			ft_putstr_fd("Error.\n", 2);
+			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
 		i++;
