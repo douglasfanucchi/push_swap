@@ -23,3 +23,11 @@ $(NAME): $(OBJS) $(LIBFT)
 
 $(OBJS): $(SRCS)
 	$(CC) $(FLAGS) -c $(SRCS)
+
+clean:
+	make clean -C lib/libft
+	rm -rf $(OBJS)
+
+fclean: clean
+	make fclean -C lib/libft
+	rm -rf $(NAME)
