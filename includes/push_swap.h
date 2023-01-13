@@ -16,7 +16,7 @@
 
 typedef struct s_item {
 	unsigned int	index;
-	int				value;
+	long			value;
 }	t_item;
 
 void	ft_rotate(int *stack, int size);
@@ -39,5 +39,6 @@ void	ft_quick_sort(t_item **stack, int start, int end);
 void	ft_radix(int *stack_a, int *stack_b, int size_a, int size_b);
 void	ft_small_stack_sort(int *stack_a, int *stack_b, int size_a, int size_b);
 char	ft_is_ordered(int *stack, int stack_size);
+int		*create_stack(int size, char **numbers);
 
 #endif

@@ -28,68 +28,6 @@ void	validate_argv(char **argv)
 	}
 }
 
-void	free_stack(t_item **stack, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-		free(stack[i++]);
-	free(stack);
-}
-
-void	set_items_indexes(t_item **stack, int size)
-{
-	t_item	**ordered;
-	int		i;
-
-	i = 0;
-	ordered = malloc(sizeof(t_item **) * size);
-	ft_memcpy(ordered, stack, size * sizeof(t_item **));
-	ft_quick_sort(ordered, 0, size);
-	while (i < size)
-	{
-		ordered[i]->index = i;
-		if (i != size - 1 && ordered[i]->value == ordered[i + 1]->value)
-		{
-			free_stack(stack, size);
-			free(ordered);
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
-		i++;
-	}
-	free(ordered);
-}
-
-int	*create_stack(int size, char **numbers)
-{
-	t_item	**stack;
-	t_item	*item;
-	int		*indexes_stack;
-	int		i;
-
-	i = 0;
-	stack = malloc(sizeof(t_item **) * size);
-	while (i < size)
-	{
-		item = malloc(sizeof(t_item));
-		item->value = ft_atoi(numbers[i]);
-		stack[i] = item;
-		i++;
-	}
-	set_items_indexes(stack, size);
-	indexes_stack = malloc(sizeof(int) * size);
-	i = 0;
-	while (i < size)
-	{
-		indexes_stack[i] = stack[i]->index;
-		i++;
-	}
-	free_stack(stack, size);
-	return (indexes_stack);
-}
-
 int	main(int argc, char **argv)
 {
 	int	*stack_a;
@@ -101,6 +39,8 @@ int	main(int argc, char **argv)
 	validate_argv(argv);
 	stack_size = argc - 1;
 	stack_a = create_stack(stack_size, argv + 1);
+	if (!stack_a)
+		return (1);
 	stack_b = malloc(sizeof(int) * stack_size);
 	if (ft_is_ordered(stack_a, stack_size))
 	{
