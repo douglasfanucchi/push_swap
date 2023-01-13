@@ -6,12 +6,11 @@
 /*   By: dfanucch <dfanucch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:25:58 by dfanucch          #+#    #+#             */
-/*   Updated: 2023/01/10 21:38:48 by dfanucch         ###   ########.fr       */
+/*   Updated: 2023/01/12 20:33:50 by dfanucch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-#include <stdio.h>
 
 void	validate_argv(char **argv)
 {
@@ -87,6 +86,7 @@ int	*create_stack(int size, char **numbers)
 		indexes_stack[i] = stack[i]->index;
 		i++;
 	}
+	free_stack(stack, size);
 	return (indexes_stack);
 }
 
@@ -104,6 +104,11 @@ int	main(int argc, char **argv)
 	stack_b = malloc(sizeof(int) * stack_size);
 	if (!stack_a)
 		return (1);
-	ft_radix(stack_a, stack_b, stack_size, 0);
+	if (stack_size < 6)
+		ft_small_stack_sort(stack_a, stack_b, stack_size, 0);
+	else
+		ft_radix(stack_a, stack_b, stack_size, 0);
+	free(stack_a);
+	free(stack_b);
 	return (0);
 }

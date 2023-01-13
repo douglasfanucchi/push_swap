@@ -37,5 +37,6 @@ void	ft_reverse_rotate_both(int *stack_a, int *stack_b, int size_a,
 			int size_b);
 void	ft_quick_sort(t_item **stack, int start, int end);
 void	ft_radix(int *stack_a, int *stack_b, int size_a, int size_b);
+void	ft_small_stack_sort(int *stack_a, int *stack_b, int size_a, int size_b);
 
 #endif
