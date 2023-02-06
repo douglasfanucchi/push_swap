@@ -55,7 +55,7 @@ void	ft_small_stack_sort(int *stack_a, int *stack_b, int size_a, int size_b)
 	if (size_a > 3)
 		ft_push_b(stack_a, stack_b, &size_a, &size_b);
 	sort_3_elements(stack_a, size_a);
-	if (stack_b[0] > stack_b[1])
+	if (size_b > 1 && stack_b[0] > stack_b[1])
 		ft_swap_b(stack_b, size_b);
 	while (1)
 	{
