@@ -38,3 +38,18 @@ void	ft_dlstadd_back(t_dlist **head, t_dlist *new)
 	(*head)->prev->next = new;
 	(*head)->prev = new;
 }
+
+void	ft_dlstclear(t_dlist **head)
+{
+	t_dlist	*tmp;
+
+	if (!*head)
+		return ;
+	(*head)->prev->next = NULL;
+	while (*head)
+	{
+		tmp = (*head);
+		(*head) = (*head)->next;
+		free(tmp);
+	}
+}
