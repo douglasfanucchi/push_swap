@@ -28,3 +28,13 @@ void	ft_dlstadd_front(t_dlist **head, t_dlist *new)
 	new->prev->next = new;
 	(*head) = new;
 }
+
+void	ft_dlstadd_back(t_dlist **head, t_dlist *new)
+{
+	if (*head)
+		return (ft_dlstadd_front(head, new));
+	new->prev = (*head)->prev;
+	new->next = *head;
+	(*head)->prev->next = new;
+	(*head)->prev = new;
+}

@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/16 17:21:35 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/16 17:33:02 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_dlist {
 
 t_dlist	*ft_dlstnew(int n);
 void	ft_dlstadd_front(t_dlist **head, t_dlist *new);
+void	ft_dlstadd_back(t_dlist **head, t_dlist *new);
 
 #endif
 
