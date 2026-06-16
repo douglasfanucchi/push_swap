@@ -31,7 +31,7 @@ void	ft_dlstadd_front(t_dlist **head, t_dlist *new)
 
 void	ft_dlstadd_back(t_dlist **head, t_dlist *new)
 {
-	if (*head)
+	if (!*head)
 		return (ft_dlstadd_front(head, new));
 	new->prev = (*head)->prev;
 	new->next = *head;
