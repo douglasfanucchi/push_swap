@@ -1,5 +1,5 @@
 NAME=push_swap
-SRC=main.c
+SRC=main.c ft_dlist.c
 OBJECTS=$(SRC:.c=.o)
 CC=cc
 CFLAGS=-Wall -Werror -Wextra
