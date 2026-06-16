@@ -53,3 +53,25 @@ void	ft_dlstclear(t_dlist **head)
 		free(tmp);
 	}
 }
+
+t_dlist	*ft_dlst_pop(t_dlist **head)
+{
+	t_dlist	*node;
+
+	node = *head;
+	if (!node)
+		return (NULL);
+	if ((*head)->next == (*head))
+	{
+		*head = NULL;
+		node->prev = NULL;
+		node->next = NULL;
+		return (node);
+	}
+	(*head)->prev->next = (*head)->next;
+	(*head)->next->prev = (*head)->prev;
+	(*head) = (*head)->next;
+	node->prev = NULL;
+	node->next = NULL;
+	return (node);
+}
