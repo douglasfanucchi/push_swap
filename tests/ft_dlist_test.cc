@@ -30,3 +30,24 @@ TEST(ft_dlist, itShouldAddAnElementInFrontOfAnEmptyList) {
 	ASSERT_EQ(&node, list->next);
 	ASSERT_EQ(&node, list->prev);
 }
+
+TEST(ft_dlist, itShouldAddAnElementInFrontOfANonEmptyList) {
+	t_dlist *list, head_node, new_node;
+	list = &head_node;
+	head_node.prev = &head_node;
+	head_node.next = &head_node;
+	head_node.n = 43;
+	new_node.n = 42;
+	new_node.next = NULL;
+	new_node.prev = NULL;
+
+	ft_dlstadd_front(&list, &new_node);
+
+	ASSERT_EQ(&new_node, list);
+	ASSERT_EQ(&head_node, list->prev);
+	ASSERT_EQ(&head_node, list->next);
+	ASSERT_EQ(42, list->n);
+	ASSERT_EQ(list, head_node.prev);
+	ASSERT_EQ(list, head_node.next);
+	ASSERT_EQ(43, head_node.n);
+}
