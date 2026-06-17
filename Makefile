@@ -1,6 +1,10 @@
 NAME=push_swap
-SRC=main.c ft_dlist.c
-OBJECTS=$(SRC:.c=.o)
+FILES=main ft_dlist
+SRC=$(addsufix .c,$(FILES))
+OBJECTS=$(addsufix .o,$(FILES))
+TEST_FILES:=$(filter-out main, $(FILES))
+TEST_FILES:=$(addprefix tests/,$(TEST_FILES))
+TEST_FILES:=$(addsuffix _test.cc, $(TEST_FILES))
 CC=cc
 CFLAGS=-Wall -Werror -Wextra
 LIBS=-L libft
@@ -29,7 +33,7 @@ fclean: clean
 
 re: fclean all
 
-tests: all
+tests: $(TEST_FILES) $(filter-out main.o,$(OBJECTS))
 	ar rcs tests.a $(filter-out main.o,$(OBJECTS))
 	@cd tests && \
 	cmake -S . -B build &&\
