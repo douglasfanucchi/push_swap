@@ -15,3 +15,18 @@ TEST(ft_dlist, itShouldCreateANewNodeOfADlist) {
 	ASSERT_EQ(nullptr, node->prev);
 	free(node);
 }
+
+TEST(ft_dlist, itShouldAddAnElementInFrontOfAnEmptyList) {
+	t_dlist	*list = NULL;
+	t_dlist node;
+	node.n = 42;
+	node.next = NULL;
+	node.prev = NULL;
+
+	ft_dlstadd_front(&list, &node);
+
+	ASSERT_NE(nullptr, list);
+	ASSERT_EQ(&node, list);
+	ASSERT_EQ(&node, list->next);
+	ASSERT_EQ(&node, list->prev);
+}
