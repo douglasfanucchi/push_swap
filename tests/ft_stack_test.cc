@@ -27,3 +27,19 @@ TEST(ft_stack, itShouldPushAnElementIntoAnEmptyStack) {
 
 	free(stack.head);
 }
+
+TEST(ft_stack, itShouldPopAnElementFromAStack) {
+	t_stack stack;
+	t_dlist	*node = (t_dlist *)malloc(sizeof(t_dlist));
+	node->n = 42;
+	node->next = node;
+	node->prev = node;
+	stack.size = 1;
+	stack.head = node;
+
+	int result = ft_stack_pop(&stack);
+
+	ASSERT_EQ(0, result);
+	ASSERT_EQ(0, stack.size);
+	ASSERT_EQ(nullptr, stack.head);
+}
