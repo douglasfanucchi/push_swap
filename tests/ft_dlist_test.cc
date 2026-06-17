@@ -124,3 +124,14 @@ TEST(ft_dlist, itShouldPopAnElementFromAListThatHasTwoNodes) {
 	ASSERT_EQ(nullptr, result->next);
 	ASSERT_EQ(42, result->n);
 }
+
+TEST(ft_dlist, itShouldClearAnExistingList) {
+	t_dlist *list = (t_dlist *)malloc(sizeof(t_dlist));
+	list->prev = list;
+	list->next = list;
+	list->n = 42;
+
+	ft_dlstclear(&list);
+
+	ASSERT_EQ(nullptr, list);
+}
