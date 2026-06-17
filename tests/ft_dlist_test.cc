@@ -51,3 +51,18 @@ TEST(ft_dlist, itShouldAddAnElementInFrontOfANonEmptyList) {
 	ASSERT_EQ(list, head_node.next);
 	ASSERT_EQ(43, head_node.n);
 }
+
+TEST(ft_dlist, itShouldAddAnElementIntoTheBackOfAnEmptyList) {
+	t_dlist	*list = NULL;
+	t_dlist node;
+	node.n = 42;
+	node.next = NULL;
+	node.prev = NULL;
+
+	ft_dlstadd_back(&list, &node);
+
+	ASSERT_NE(nullptr, list);
+	ASSERT_EQ(&node, list);
+	ASSERT_EQ(&node, list->next);
+	ASSERT_EQ(&node, list->prev);
+}
