@@ -66,3 +66,24 @@ TEST(ft_dlist, itShouldAddAnElementIntoTheBackOfAnEmptyList) {
 	ASSERT_EQ(&node, list->next);
 	ASSERT_EQ(&node, list->prev);
 }
+
+TEST(ft_dlist, itShouldAddAnElementIntoTheBackOfNonEmptyList) {
+	t_dlist *list, tail_node, new_node;
+	list = &tail_node;
+	tail_node.prev = &tail_node;
+	tail_node.next = &tail_node;
+	tail_node.n = 42;
+	new_node.n = 43;
+	new_node.next = NULL;
+	new_node.prev = NULL;
+
+	ft_dlstadd_back(&list, &new_node);
+
+	ASSERT_EQ(&tail_node, list);
+	ASSERT_EQ(&new_node, list->prev);
+	ASSERT_EQ(&new_node, list->next);
+	ASSERT_EQ(42, list->n);
+	ASSERT_EQ(list, new_node.prev);
+	ASSERT_EQ(list, new_node.next);
+	ASSERT_EQ(43, new_node.n);
+}
