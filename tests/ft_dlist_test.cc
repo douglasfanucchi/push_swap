@@ -103,3 +103,24 @@ TEST(ft_dlist, itShouldPopAnElementFromAListThatHasOneNode) {
 	ASSERT_EQ(nullptr, result->next);
 	ASSERT_EQ(43, result->n);
 }
+
+TEST(ft_dlist, itShouldPopAnElementFromAListThatHasTwoNodes) {
+	t_dlist *list, head_node, second_node;
+	list = &head_node;
+	head_node.prev = &second_node;
+	head_node.next = &second_node;
+	head_node.n = 42;
+	second_node.n = 43;
+	second_node.prev = &head_node;
+	second_node.next = &head_node;
+
+	t_dlist *result = ft_dlst_pop(&list);
+
+	ASSERT_EQ(&second_node, list);
+	ASSERT_EQ(&second_node, second_node.prev);
+	ASSERT_EQ(list, second_node.next);
+	ASSERT_EQ(43, list->n);
+	ASSERT_EQ(nullptr, result->prev);
+	ASSERT_EQ(nullptr, result->next);
+	ASSERT_EQ(42, result->n);
+}
