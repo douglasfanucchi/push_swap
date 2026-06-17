@@ -29,4 +29,12 @@ fclean: clean
 
 re: fclean all
 
+tests: all
+	ar rcs tests.a $(filter-out main.o,$(OBJECTS))
+	@cd tests && \
+	cmake -S . -B build &&\
+	cmake --build build &&\
+	cd build &&\
+	ctest --output-on-failure
+
 .PHONY: clean fclean re
