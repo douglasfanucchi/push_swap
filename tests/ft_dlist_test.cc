@@ -87,3 +87,19 @@ TEST(ft_dlist, itShouldAddAnElementIntoTheBackOfNonEmptyList) {
 	ASSERT_EQ(list, new_node.next);
 	ASSERT_EQ(43, new_node.n);
 }
+
+TEST(ft_dlist, itShouldPopAnElementFromAListThatHasOneNode) {
+	t_dlist *list, head_node;
+	list = &head_node;
+	head_node.prev = &head_node;
+	head_node.next = &head_node;
+	head_node.n = 43;
+
+	t_dlist *result = ft_dlst_pop(&list);
+
+	ASSERT_EQ(nullptr, list);
+	ASSERT_NE(nullptr, result);
+	ASSERT_EQ(nullptr, result->prev);
+	ASSERT_EQ(nullptr, result->next);
+	ASSERT_EQ(43, result->n);
+}
