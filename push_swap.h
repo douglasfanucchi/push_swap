@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/17 17:36:43 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/17 18:49:01 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,25 @@ typedef struct s_stack {
 	int		size;
 	t_dlist	*head;
 }	t_stack;
+
+typedef enum e_operations {
+	sa,
+	sb,
+	ss,
+	pa,
+	pb,
+	ra,
+	rb,
+	rr,
+	rra,
+	rrb,
+	rrr
+}	t_operations;
+
+typedef struct s_state {
+	int	count_ops[11];
+	int	total_ops;
+}	t_state;
 
 t_dlist	*ft_dlstnew(int n);
 void	ft_dlstadd_front(t_dlist **head, t_dlist *_new);
