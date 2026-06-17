@@ -42,5 +42,6 @@ tests: $(TEST_FILES) tests.a
 	cmake --build build &&\
 	cd build &&\
 	ctest --output-on-failure
+	@rm -rf tests.a
 
 .PHONY: clean fclean re
