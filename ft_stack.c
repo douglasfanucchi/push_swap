@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 17:15:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/17 17:49:35 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/18 15:38:16 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,9 @@ int		ft_stack_pop(t_stack *stack)
 	free(node);
 	stack->size--;
 	return (stack->size);
+}
+
+int	ft_stack_peek(const t_stack *stack)
+{
+	return (stack->head->n);
 }
