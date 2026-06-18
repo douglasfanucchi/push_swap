@@ -49,3 +49,19 @@ TEST(ft_stack, itShouldPeekTheElementAtTheTopOfStack) {
 
 	ASSERT_EQ(42, result);
 }
+
+TEST(ft_stack, itShouldRotateAStackWithOneElement) {
+	t_stack stack;
+	t_dlist node;
+	node.n = 42;
+	node.next = &node;
+	node.prev = &node;
+	stack.size = 1;
+	stack.head = &node;
+
+	ft_stack_rotate(&stack);
+
+	ASSERT_EQ(42, stack.head->n);
+	ASSERT_EQ(stack.head, stack.head->next);
+	ASSERT_EQ(stack.head, stack.head->prev);
+}
