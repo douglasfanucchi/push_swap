@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/18 17:00:04 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/18 19:17:59 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ void	ft_stack_rotate(t_stack *stack);
 void	ft_stack_reverse_rotate(t_stack *stack);
 void	ft_exec_operation(t_state *state, t_stack *stack_a, t_stack *stack_b,
 			t_operations (*f)(t_stack *stack_a, t_stack *stack_b));
+char	*ft_get_operation_label(t_operations op);
 
 #endif

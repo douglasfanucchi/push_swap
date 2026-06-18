@@ -1,5 +1,5 @@
 NAME=push_swap
-FILES=main ft_dlist ft_stack ft_stack_operations push_swap
+FILES=main ft_dlist ft_stack ft_stack_operations push_swap push_swap_utils
 SRC=$(addsuffix .c,$(FILES))
 OBJECTS=$(addsuffix .o,$(FILES))
 TEST_FILES:=$(filter-out main, $(FILES))
