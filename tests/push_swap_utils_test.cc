@@ -12,3 +12,12 @@ TEST(push_swap_utils, itShouldGetLabelFromSwapAOperation) {
 	ASSERT_STREQ("sa", result);
 	free(result);
 }
+
+TEST(push_swap_utils, itShouldGetLabelFromSwapBOperation) {
+	t_operations op = sb;
+
+	char *result = ft_get_operation_label(op);
+
+	ASSERT_STREQ("sb", result);
+	free(result);
+}
