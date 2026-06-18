@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:03:47 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/18 16:25:16 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/18 16:29:12 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,9 @@ int	ft_stack_peek(const t_stack *stack)
 void	ft_stack_rotate(t_stack *stack)
 {
 	stack->head = stack->head->next;
+}
+
+void	ft_stack_reverse_rotate(t_stack *stack)
+{
+	stack->head = stack->head->prev;
 }
