@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/18 15:51:11 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/18 16:17:20 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int		ft_stack_push(t_stack *stack, int n);
 int		ft_stack_pop(t_stack *stack);
 int		ft_stack_peek(const t_stack *stack);
 void	ft_stack_clear(t_stack *stack);
+void	ft_stack_rotate(t_stack *stack);
 
 #endif
