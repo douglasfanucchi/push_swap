@@ -30,3 +30,12 @@ TEST(push_swap_utils, itShouldGetLabelFromSSOperation) {
 	ASSERT_STREQ("ss", result);
 	free(result);
 }
+
+TEST(push_swap_utils, itShouldGetLabelFromPushAOperation) {
+	t_operations op = pa;
+
+	char *result = ft_get_operation_label(op);
+
+	ASSERT_STREQ("pa", result);
+	free(result);
+}
