@@ -27,8 +27,11 @@ target_link_libraries(
 )
 target_link_libraries(
   tests
-  ${CMAKE_SOURCE_DIR}/../libft/libft.a
 	${CMAKE_SOURCE_DIR}/../tests.a
+)
+target_link_libraries(
+  tests
+  ${CMAKE_SOURCE_DIR}/../libft/libft.a
 )
 target_include_directories(
   tests
