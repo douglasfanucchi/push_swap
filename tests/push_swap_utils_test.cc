@@ -1,7 +1,14 @@
-#include <gtest.h/gtest.h>
+#include <gtest/gtest.h>
 
 extern "C" {
 	#include "push_swap.h"
 }
 
-TEST() {}
+TEST(push_swap_utils, itShouldGetLabelFromSwapAOperation) {
+	t_operations op = sa;
+
+	char *result = ft_get_operation_label(op);
+
+	ASSERT_STREQ("sa", result);
+	free(result);
+}
