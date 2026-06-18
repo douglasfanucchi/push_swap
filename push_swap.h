@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/18 16:27:14 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/18 16:51:42 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ typedef enum e_operations {
 }	t_operations;
 
 typedef struct s_state {
-	int	count_ops[11];
-	int	total_ops;
+	int		count_ops[11];
+	int		total_ops;
+	t_list	*ops;
 }	t_state;
 
 t_dlist	*ft_dlstnew(int n);
