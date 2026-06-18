@@ -58,3 +58,17 @@ TEST(ft_stack, itShouldPeekTheElementAtTheTopOfStack) {
 
 	ASSERT_EQ(42, result);
 }
+
+TEST(ft_stack, itShouldClearTheStack) {
+	t_stack stack;
+	t_dlist *node = (t_dlist*)malloc(sizeof(t_dlist));
+	node->n = 42;
+	node->next = node;
+	node->prev = node;
+	stack.size = 1;
+	stack.head = node;
+
+	ft_stack_clear(&stack);
+
+	ASSERT_EQ(nullptr, stack.head);
+}
