@@ -85,3 +85,12 @@ TEST(push_swap_utils, itShouldGetLabelFromReverseRotateAOperation) {
 	ASSERT_STREQ("rra", result);
 	free(result);
 }
+
+TEST(push_swap_utils, itShouldGetLabelFromReverseRotateBOperation) {
+	t_operations op = rrb;
+
+	char *result = ft_get_operation_label(op);
+
+	ASSERT_STREQ("rrb", result);
+	free(result);
+}
