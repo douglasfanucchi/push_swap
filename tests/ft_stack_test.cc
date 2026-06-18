@@ -43,3 +43,18 @@ TEST(ft_stack, itShouldPopAnElementFromAStack) {
 	ASSERT_EQ(0, stack.size);
 	ASSERT_EQ(nullptr, stack.head);
 }
+
+
+TEST(ft_stack, itShouldPeekTheElementAtTheTopOfStack) {
+	t_stack stack;
+	t_dlist node;
+	node.n = 42;
+	node.next = &node;
+	node.prev = &node;
+	stack.size = 1;
+	stack.head = &node;
+
+	int result = ft_stack_peek(&stack);
+
+	ASSERT_EQ(42, result);
+}
