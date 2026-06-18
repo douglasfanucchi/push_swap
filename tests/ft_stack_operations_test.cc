@@ -89,3 +89,20 @@ TEST(ft_stack, itShouldRotateAStackWithMoreThanOneElement) {
 	ASSERT_EQ(&node_1, stack.head->prev);
 	ASSERT_EQ(&node_3, stack.head->next);
 }
+
+
+TEST(ft_stack, itShouldReverseRotateAStackWithOneElement) {
+	t_stack stack;
+	t_dlist node;
+	node.n = 42;
+	node.next = &node;
+	node.prev = &node;
+	stack.size = 1;
+	stack.head = &node;
+
+	ft_stack_reverse_rotate(&stack);
+
+	ASSERT_EQ(42, stack.head->n);
+	ASSERT_EQ(stack.head, stack.head->next);
+	ASSERT_EQ(stack.head, stack.head->prev);
+}
