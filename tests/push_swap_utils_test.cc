@@ -57,3 +57,12 @@ TEST(push_swap_utils, itShouldGetLabelFromRotateAOperation) {
 	ASSERT_STREQ("ra", result);
 	free(result);
 }
+
+TEST(push_swap_utils, itShouldGetLabelFromRotateBOperation) {
+	t_operations op = rb;
+
+	char *result = ft_get_operation_label(op);
+
+	ASSERT_STREQ("rb", result);
+	free(result);
+}
