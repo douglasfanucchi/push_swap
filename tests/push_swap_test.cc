@@ -11,6 +11,13 @@ static t_operations	ft_swap_a(t_stack *stack_a, t_stack *stack_b)
 	return (sa);
 }
 
+static t_operations	ft_swap_b(t_stack *stack_a, t_stack *stack_b)
+{
+	(void)stack_a;
+	(void)stack_b;
+	return (sb);
+}
+
 TEST(push_swap, itShouldExecuteSwapOperationOnStackA) {
 	t_state	state;
 	t_stack	stack_a;
@@ -24,6 +31,23 @@ TEST(push_swap, itShouldExecuteSwapOperationOnStackA) {
 	ASSERT_EQ(1, state.total_ops);
 	ASSERT_NE(nullptr, state.ops);
 	ASSERT_STREQ("sa", (char *)state.ops->content);
+
+	ft_lstclear(&state.ops, free);
+}
+
+TEST(push_swap, itShouldExecuteSwapOperationOnStackB) {
+	t_state	state;
+	t_stack	stack_b;
+	state.count_ops[sb] = 0;
+	state.total_ops = 0;
+	state.ops = NULL;
+
+	ft_exec_operation(&state, NULL, &stack_b, ft_swap_b);
+	
+	ASSERT_EQ(1, state.count_ops[sb]);
+	ASSERT_EQ(1, state.total_ops);
+	ASSERT_NE(nullptr, state.ops);
+	ASSERT_STREQ("sb", (char *)state.ops->content);
 
 	ft_lstclear(&state.ops, free);
 }
