@@ -53,6 +53,13 @@ static t_operations	ft_rotate_b(t_stack *stack_a, t_stack *stack_b)
 	return (rb);
 }
 
+static t_operations	ft_rotate_rr(t_stack *stack_a, t_stack *stack_b)
+{
+	(void)stack_a;
+	(void)stack_b;
+	return (rr);
+}
+
 TEST(push_swap, itShouldExecuteSwapOperationOnStackA) {
 	t_state	state;
 	t_stack	stack_a;
@@ -168,6 +175,23 @@ TEST(push_swap, itShouldExecuteRotateOperationOnStackB) {
 	ASSERT_EQ(1, state.total_ops);
 	ASSERT_NE(nullptr, state.ops);
 	ASSERT_STREQ("rb", (char *)state.ops->content);
+
+	ft_lstclear(&state.ops, free);
+}
+
+TEST(push_swap, itShouldExecuteRotateOperationOnBothStacks) {
+	t_state	state;
+	t_stack	stack_a, stack_b;
+	state.count_ops[rr] = 0;
+	state.total_ops = 0;
+	state.ops = NULL;
+
+	ft_exec_operation(&state, &stack_a, NULL, ft_rotate_rr);
+	
+	ASSERT_EQ(1, state.count_ops[rr]);
+	ASSERT_EQ(1, state.total_ops);
+	ASSERT_NE(nullptr, state.ops);
+	ASSERT_STREQ("rr", (char *)state.ops->content);
 
 	ft_lstclear(&state.ops, free);
 }
