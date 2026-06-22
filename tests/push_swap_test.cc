@@ -266,3 +266,21 @@ TEST(push_swap, itShouldExecuteReverseRotateOperationOnBothStacks) {
 
 	ft_lstclear(&state.ops, free);
 }
+
+TEST(push_swap, itShouldExecuteSwapAndRotateOnStackA) {
+	t_state	state;
+	t_stack	stack_a;
+	bzero(&state, sizeof(t_state));
+
+	ft_exec_operation(&state, &stack_a, NULL, ft_swap_a);
+	ft_exec_operation(&state, &stack_a, NULL, ft_rotate_a);
+	
+	ASSERT_EQ(1, state.count_ops[sa]);
+	ASSERT_EQ(1, state.count_ops[ra]);
+	ASSERT_EQ(2, state.total_ops);
+	ASSERT_NE(nullptr, state.ops);
+	ASSERT_STREQ("sa", (char *)state.ops->content);
+	ASSERT_STREQ("ra", (char *)state.ops->next->content);
+
+	ft_lstclear(&state.ops, free);
+}
