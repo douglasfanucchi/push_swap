@@ -93,3 +93,12 @@ TEST(ft_state, itShouldGetTheAmountOfPushBOperations) {
 
     ASSERT_EQ(42, result);
 }
+
+TEST(ft_state, itShouldGetTheAmountOfRotateAOperations) {
+    t_state state;
+    state.count_ops[ra] = 42;
+
+    int result = ft_state_get_operation_count(&state, ra);
+
+    ASSERT_EQ(42, result);
+}
