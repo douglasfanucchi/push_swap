@@ -66,3 +66,12 @@ TEST(ft_state, itShouldGetTheAmountOfSwapBOperations) {
 
     ASSERT_EQ(42, result);
 }
+
+TEST(ft_state, itShouldGetTheAmountOfSwapBothOperations) {
+    t_state state;
+    state.count_ops[ss] = 42;
+
+    int result = ft_state_get_operation_count(&state, ss);
+
+    ASSERT_EQ(42, result);
+}
