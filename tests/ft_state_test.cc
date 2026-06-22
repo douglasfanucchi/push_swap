@@ -4,6 +4,7 @@ extern "C" {
     #include "push_swap.h"
     #include <fcntl.h>
     #include <unistd.h>
+    #include <strings.h>
 }
 
 TEST(ft_state, itShouldInitializeState) {
@@ -146,4 +147,158 @@ TEST(ft_state, itShouldGetTheAmountOfReverseRotateBothOperations) {
     int result = ft_state_get_operation_count(&state, rrr);
 
     ASSERT_EQ(42, result);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingSwapAOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, sa);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[sa]);
+    ASSERT_STREQ("sa", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingSwapBOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, sb);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[sb]);
+    ASSERT_STREQ("sb", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingSwapSwapOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, ss);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[ss]);
+    ASSERT_STREQ("ss", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingPushAOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, pa);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[pa]);
+    ASSERT_STREQ("pa", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingPushBOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, pb);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[pb]);
+    ASSERT_STREQ("pb", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingRotateAOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, ra);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[ra]);
+    ASSERT_STREQ("ra", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingRotateBOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, rb);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[rb]);
+    ASSERT_STREQ("rb", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingRotateRotateOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, rr);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[rr]);
+    ASSERT_STREQ("rr", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingReverseRotateAOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, rra);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[rra]);
+    ASSERT_STREQ("rra", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingReverseRotateBOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, rrb);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[rrb]);
+    ASSERT_STREQ("rrb", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
+}
+
+TEST(ft_state, itShouldUpdateStateByPassingReverseRotateRotateOperation) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+
+    t_bool result = ft_state_update(&state, rrr);
+
+    ASSERT_TRUE(result);
+    ASSERT_EQ(1, state.total_ops);
+    ASSERT_EQ(1, state.count_ops[rrr]);
+    ASSERT_STREQ("rrr", (char *)state.ops->content);
+
+    ft_lstclear(&state.ops, free);
 }
