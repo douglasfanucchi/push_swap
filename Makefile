@@ -1,5 +1,5 @@
 NAME=push_swap
-FILES=main ft_dlist ft_stack ft_stack_operations push_swap push_swap_utils
+FILES=main ft_dlist ft_stack ft_stack_operations push_swap push_swap_utils ft_state
 SRC=$(addsuffix .c,$(FILES))
 OBJECTS=$(addsuffix .o,$(FILES))
 TEST_FILES:=$(filter-out main, $(FILES))
@@ -10,7 +10,8 @@ CFLAGS=-Wall -Werror -Wextra
 LIBS=-L libft
 LIBFT=libft/libft.a
 INCLUDES=-I libft/includes
-SANITIZE:=-fsanitize=address -g -O1 -fno-omit-frame-pointer -fsanitize=undefined
+#SANITIZE:=-fsanitize=address -g -O1 -fno-omit-frame-pointer -fsanitize=undefined
+SANITIZE:=
 
 all: $(NAME)
 

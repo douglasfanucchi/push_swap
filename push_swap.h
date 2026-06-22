@@ -60,5 +60,6 @@ void	ft_stack_reverse_rotate(t_stack *stack);
 void	ft_exec_operation(t_state *state, t_stack *stack_a, t_stack *stack_b,
 			t_operations (*f)(t_stack *stack_a, t_stack *stack_b));
 char	*ft_get_operation_label(t_operations op);
+void	ft_state_init(t_state *state);
 
 #endif
