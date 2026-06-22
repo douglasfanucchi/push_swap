@@ -66,5 +66,6 @@ void	ft_state_init(t_state *state);
 int		ft_state_print(const t_state *state);
 int		ft_state_get_operation_count(const t_state *state, t_operations op);
 t_bool	ft_state_update(t_state *state, t_operations op);
+void	ft_state_clear(t_state *state);
 
 #endif

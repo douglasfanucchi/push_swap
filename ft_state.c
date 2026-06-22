@@ -41,3 +41,9 @@ t_bool  ft_state_update(t_state *state, t_operations op)
     state->total_ops++;
     return (TRUE);
 }
+
+void	ft_state_clear(t_state *state)
+{
+    ft_lstclear(&state->ops, free);
+    ft_state_init(state);
+}
