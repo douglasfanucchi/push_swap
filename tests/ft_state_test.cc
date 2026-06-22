@@ -48,3 +48,12 @@ TEST(ft_state, itShouldPrintOperations) {
     ASSERT_STREQ("sa\npb\n", buffer);
     ASSERT_EQ(6, result);
 }
+
+TEST(ft_state, itShouldGetTheAmountOfSwapAOperations) {
+    t_state state;
+    state.count_ops[sa] = 42;
+
+    int result = ft_state_get_operation_count(&state, sa);
+
+    ASSERT_EQ(42, result);
+}
