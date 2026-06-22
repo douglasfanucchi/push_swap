@@ -302,3 +302,17 @@ TEST(ft_state, itShouldUpdateStateByPassingReverseRotateRotateOperation) {
 
     ft_lstclear(&state.ops, free);
 }
+
+TEST(ft_state, itShouldClearStateInstance) {
+    t_state state;
+    bzero(&state, sizeof(t_state));
+    ft_lstadd_back(&state.ops, ft_lstnew(ft_strdup("sa")));
+    state.count_ops[sa] = 1;
+    state.total_ops = 1;
+
+    ft_state_clear(&state);
+
+    ASSERT_EQ(nullptr, state.ops);
+    ASSERT_EQ(0, state.count_ops[sa]);
+    ASSERT_EQ(0, state.total_ops);
+}
