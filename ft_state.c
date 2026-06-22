@@ -19,3 +19,8 @@ int	ft_state_print(const t_state *state)
     }
     return (size);
 }
+
+int ft_state_get_operation_count(const t_state *state, t_operations op)
+{
+    return state->count_ops[op];
+}
