@@ -12,7 +12,7 @@
 
 #include "ft_printf_bonus.h"
 
-int	convert_u(t_printf_info *info, va_list args)
+int	convert_u(int fd, t_printf_info *info, va_list args)
 {
 	char			*str_nbr;
 	int				counter;
@@ -21,7 +21,7 @@ int	convert_u(t_printf_info *info, va_list args)
 	nbr = va_arg(args, unsigned int);
 	counter = 0;
 	if (!nbr && !info->prec)
-		return (width_edge_case(info));
+		return (width_edge_case(fd, info));
 	str_nbr = ft_utoa(nbr);
 	if (!str_nbr)
 		return (FAIL);
@@ -29,12 +29,12 @@ int	convert_u(t_printf_info *info, va_list args)
 		return (FAIL);
 	if (!get_width(info, &str_nbr))
 		return (FAIL);
-	counter += ft_putstr_fd(str_nbr, 1);
+	counter += ft_putstr_fd(str_nbr, fd);
 	free(str_nbr);
 	return (counter);
 }
 
-int	convert_di(t_printf_info *info, va_list args)
+int	convert_di(int fd, t_printf_info *info, va_list args)
 {
 	char	*str_nbr;
 	int		counter;
@@ -43,7 +43,7 @@ int	convert_di(t_printf_info *info, va_list args)
 	nbr = va_arg(args, int);
 	counter = 0;
 	if (!nbr && !info->prec)
-		return (width_edge_case(info));
+		return (width_edge_case(fd, info));
 	str_nbr = ft_itoa(nbr);
 	if (!str_nbr)
 		return (FAIL);
@@ -51,12 +51,12 @@ int	convert_di(t_printf_info *info, va_list args)
 		return (FAIL);
 	if (!get_width(info, &str_nbr))
 		return (FAIL);
-	counter += ft_putstr_fd(str_nbr, 1);
+	counter += ft_putstr_fd(str_nbr, fd);
 	free(str_nbr);
 	return (counter);
 }
 
-int	width_edge_case(t_printf_info *info)
+int	width_edge_case(int fd, t_printf_info *info)
 {
 	char	*str_nbr;
 	int		counter;
@@ -69,7 +69,7 @@ int	width_edge_case(t_printf_info *info)
 			return (FAIL);
 		if (!get_width(info, &str_nbr))
 			return (FAIL);
-		counter += ft_putstr_fd(str_nbr, 1);
+		counter += ft_putstr_fd(str_nbr, fd);
 		free(str_nbr);
 	}
 	return (counter);

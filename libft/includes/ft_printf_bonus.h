@@ -56,24 +56,24 @@ typedef struct s_printf_info
 	unsigned char	spec;
 }	t_printf_info;
 
-int		ft_printf(const char *format, ...);
+int		ft_printf_fd(int fd, const char *format, ...);
 void	init_specification_info(t_printf_info *info);
 int		setup_specification_info(const char **format, int *counter, \
 		t_printf_info *info);
-int		convert_c_and_percent(t_printf_info *info, va_list args);
-int		convert_s(t_printf_info *info, va_list args);
-int		convert_p(t_printf_info *info, va_list args);
-int		convert_di(t_printf_info *info, va_list args);
-int		convert_u(t_printf_info *info, va_list args);
-int		convert_x(t_printf_info *info, va_list args);
-int		convert_f(va_list args);
+int		convert_c_and_percent(int fd, t_printf_info *info, va_list args);
+int		convert_s(int fd, t_printf_info *info, va_list args);
+int		convert_p(int fd, t_printf_info *info, va_list args);
+int		convert_di(int fd, t_printf_info *info, va_list args);
+int		convert_u(int fd, t_printf_info *info, va_list args);
+int		convert_x(int fd, t_printf_info *info, va_list args);
+int		convert_f(int fd, va_list args);
 int		ft_putnbr_base(unsigned long int nbr, char *base);
 char	*ft_litoa_base(unsigned long int nbr, char *base);
 char	*get_precision_diu(t_printf_info *info, char **str);
 char	*get_precision_s(t_printf_info *info, char **str);
 char	*get_precision_base(t_printf_info *info, char **str);
 char	*get_width(t_printf_info *info, char **str);
-int		width_edge_case(t_printf_info *info);
+int		width_edge_case(int fd, t_printf_info *info);
 int		width_and_precision_handler(t_printf_info *info, char *str);
 char	*ft_strjoin_free(char *s1, char **s2);
 

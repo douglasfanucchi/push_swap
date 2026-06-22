@@ -15,7 +15,7 @@
 static int	add_prefix(unsigned int nbr, char **str, t_printf_info *info);
 static int	prefix_and_width(unsigned int nbr, char **str, t_printf_info *info);
 
-int	convert_x(t_printf_info *info, va_list args)
+int	convert_x(int fd, t_printf_info *info, va_list args)
 {
 	unsigned int	nbr;
 	char			*str;
@@ -24,7 +24,7 @@ int	convert_x(t_printf_info *info, va_list args)
 	counter = 0;
 	nbr = va_arg(args, unsigned int);
 	if (!nbr && !info->prec)
-		return (width_edge_case(info));
+		return (width_edge_case(fd, info));
 	if (info->spec == 'x')
 		str = ft_litoa_base(nbr, HEXBASELOW);
 	else
@@ -35,7 +35,7 @@ int	convert_x(t_printf_info *info, va_list args)
 		return (FAIL);
 	if (!prefix_and_width(nbr, &str, info))
 		return (FAIL);
-	counter += ft_putstr_fd(str, 1);
+	counter += ft_putstr_fd(str, fd);
 	free (str);
 	return (counter);
 }

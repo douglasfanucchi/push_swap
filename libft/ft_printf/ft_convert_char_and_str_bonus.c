@@ -12,10 +12,10 @@
 
 #include "ft_printf_bonus.h"
 
-static int	print_in_order(t_printf_info *info, char c, char *pad);
+static int	print_in_order(int fd, t_printf_info *info, char c, char *pad);
 static char	*get_prec_and_width_s(t_printf_info *info, char **str);
 
-int	convert_c_and_percent(t_printf_info *info, va_list args)
+int	convert_c_and_percent(int fd, t_printf_info *info, va_list args)
 {
 	char	*pad;
 	char	c;
@@ -34,30 +34,30 @@ int	convert_c_and_percent(t_printf_info *info, va_list args)
 		c = '%';
 	if (info->spec == 'c')
 		c = (unsigned char) va_arg(args, int);
-	counter = print_in_order(info, c, pad);
+	counter = print_in_order(fd, info, c, pad);
 	free (pad);
 	return (counter);
 }
 
-static int	print_in_order(t_printf_info *info, char c, char *pad)
+static int	print_in_order(int fd, t_printf_info *info, char c, char *pad)
 {
 	int	counter;
 
 	counter = 0;
 	if (info->left)
 	{
-		counter += ft_putchar_fd(c, 1);
-		counter += ft_putstr_fd(pad, 1);
+		counter += ft_putchar_fd(c, fd);
+		counter += ft_putstr_fd(pad, fd);
 	}
 	else
 	{
-		counter += ft_putstr_fd(pad, 1);
-		counter += ft_putchar_fd(c, 1);
+		counter += ft_putstr_fd(pad, fd);
+		counter += ft_putchar_fd(c, fd);
 	}
 	return (counter);
 }
 
-int	convert_s(t_printf_info *info, va_list args)
+int	convert_s(int fd, t_printf_info *info, va_list args)
 {
 	int		counter;
 	char	*str;
@@ -77,7 +77,7 @@ int	convert_s(t_printf_info *info, va_list args)
 		return (FAIL);
 	if (!get_prec_and_width_s(info, &str))
 		return (FAIL);
-	counter += ft_putstr_fd(str, 1);
+	counter += ft_putstr_fd(str, fd);
 	free(str);
 	return (counter);
 }

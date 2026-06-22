@@ -12,7 +12,7 @@
 
 #include "ft_printf_bonus.h"
 
-int	convert_p(t_printf_info *info, va_list args)
+int	convert_p(int fd, t_printf_info *info, va_list args)
 {
 	int					counter;
 	char				*str;
@@ -33,7 +33,7 @@ int	convert_p(t_printf_info *info, va_list args)
 		return (FAIL);
 	if (!get_width(info, &str))
 		return (FAIL);
-	counter += ft_putstr_fd(str, 1);
+	counter += ft_putstr_fd(str, fd);
 	free (str);
 	return (counter);
 }

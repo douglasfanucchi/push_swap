@@ -12,9 +12,9 @@
 
 #include "ft_printf_bonus.h"
 
-static int	converter(const char **format, va_list args, int *counter);
+static int	converter(int fd, const char **format, va_list args, int *counter);
 
-int	ft_printf(const char *format, ...)
+int	ft_printf_fd(int fd, const char *format, ...)
 {
 	va_list	args;
 	int		counter;
@@ -28,12 +28,12 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (converter(&format, args, &counter) == FAIL)
+			if (converter(fd, &format, args, &counter) == FAIL)
 				return (-1);
 		}
 		else
 		{
-			ft_putchar_fd(*format, 1);
+			ft_putchar_fd(*format, fd);
 			counter++;
 		}
 		format++;
@@ -42,7 +42,7 @@ int	ft_printf(const char *format, ...)
 	return (counter);
 }
 
-static int	converter(const char **format, va_list args, int *counter)
+static int	converter(int fd, const char **format, va_list args, int *counter)
 {
 	int				conversion_return;
 	t_printf_info	info;
@@ -51,19 +51,19 @@ static int	converter(const char **format, va_list args, int *counter)
 	if (setup_specification_info(format, counter, &info) == FAIL)
 		return (FAIL);
 	if (info.spec == '%' || info.spec == 'c')
-		conversion_return = convert_c_and_percent(&info, args);
+		conversion_return = convert_c_and_percent(fd, &info, args);
 	else if (info.spec == 's')
-		conversion_return = convert_s(&info, args);
+		conversion_return = convert_s(fd, &info, args);
 	else if (info.spec == 'p')
-		conversion_return = convert_p(&info, args);
+		conversion_return = convert_p(fd, &info, args);
 	else if (info.spec == 'd' || info.spec == 'i')
-		conversion_return = convert_di(&info, args);
+		conversion_return = convert_di(fd, &info, args);
 	else if (info.spec == 'u')
-		conversion_return = convert_u(&info, args);
+		conversion_return = convert_u(fd, &info, args);
 	else if (info.spec == 'f')
-		conversion_return = convert_f(args);
+		conversion_return = convert_f(fd, args);
 	else
-		conversion_return = convert_x(&info, args);
+		conversion_return = convert_x(fd, &info, args);
 	if (conversion_return == FAIL)
 		return (FAIL);
 	*counter += conversion_return;
