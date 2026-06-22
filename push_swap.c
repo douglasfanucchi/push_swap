@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-void	ft_exec_operation(t_state *state, t_stack *stack_1, t_stack *stack_2,
+t_bool	ft_exec_operation(t_state *state, t_stack *stack_1, t_stack *stack_2,
 			t_operations (*f)(t_stack *stack_1, t_stack *stack_2))
 {
 	t_operations	op;
 
 	op = f(stack_1, stack_2);
-	ft_state_update(state, op);
+	return (ft_state_update(state, op));
 }
