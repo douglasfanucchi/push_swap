@@ -284,3 +284,15 @@ TEST(push_swap, itShouldExecuteSwapAndRotateOnStackA) {
 
 	ft_lstclear(&state.ops, free);
 }
+
+TEST(push_swap, itShouldReturnTrueOnOperationSuccess) {
+	t_state	state;
+	t_stack	stack_a;
+	bzero(&state, sizeof(t_state));
+
+	t_bool result = ft_exec_operation(&state, &stack_a, NULL, ft_swap_a);
+	
+	ASSERT_TRUE(result);
+
+	ft_lstclear(&state.ops, free);
+}
