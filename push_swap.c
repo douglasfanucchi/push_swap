@@ -16,14 +16,7 @@ void	ft_exec_operation(t_state *state, t_stack *stack_1, t_stack *stack_2,
 			t_operations (*f)(t_stack *stack_1, t_stack *stack_2))
 {
 	t_operations	op;
-	char			*str_op;
 
-	str_op = NULL;
 	op = f(stack_1, stack_2);
-	str_op = ft_get_operation_label(op);
-	if (!str_op)
-		return ;
-	state->count_ops[op]++;
-	state->total_ops++;
-	ft_lstadd_front(&state->ops, ft_lstnew(str_op));
+	ft_state_update(state, op);
 }
