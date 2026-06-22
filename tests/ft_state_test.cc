@@ -138,3 +138,12 @@ TEST(ft_state, itShouldGetTheAmountOfReverseRotateBOperations) {
 
     ASSERT_EQ(42, result);
 }
+
+TEST(ft_state, itShouldGetTheAmountOfReverseRotateBothOperations) {
+    t_state state;
+    state.count_ops[rrr] = 42;
+
+    int result = ft_state_get_operation_count(&state, rrr);
+
+    ASSERT_EQ(42, result);
+}
