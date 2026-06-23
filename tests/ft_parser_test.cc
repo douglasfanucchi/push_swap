@@ -92,3 +92,11 @@ TEST(ft_parse, itShouldReturnTrueWhenInputIsPositiveSignedNumber) {
 
 	ASSERT_TRUE(result);
 }
+
+TEST(ft_parse, itShouldReturnFalseWhenInputHasMoreThanOneSign) {
+	const char *input = "++42";
+
+	t_bool result = ft_is_valid_numeric_input(input);
+
+	ASSERT_FALSE(result);
+}
