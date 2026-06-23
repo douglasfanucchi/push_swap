@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/23 15:41:32 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/23 16:57:08 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,7 @@ int		ft_state_print(const t_state *state);
 int		ft_state_get_operation_count(const t_state *state, t_operations op);
 t_bool	ft_state_update(t_state *state, t_operations op);
 void	ft_state_clear(t_state *state);
+t_bool	ft_is_valid_flag(const char *str);
+
 
 #endif
