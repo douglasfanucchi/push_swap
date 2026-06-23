@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 19:06:05 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/23 19:12:46 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/23 19:13:53 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_bool	ft_is_valid_flag(const char *str)
 		"--simple",
 		"--medium",
 		"--complex",
+		"--bench",
 		NULL
 	};
 	if (!ft_is_flag(str))
