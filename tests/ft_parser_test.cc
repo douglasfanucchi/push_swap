@@ -116,3 +116,11 @@ TEST(ft_parse, itShouldReturnTrueWhenInputHasSpaceSeparatedNumbers) {
 
 	ASSERT_TRUE(result);
 }
+
+TEST(ft_parse, itShouldReturnFalseWhenInputIsEmpty) {
+	const char *input = "";
+
+	t_bool result = ft_is_valid_numeric_input(input);
+
+	ASSERT_FALSE(result);
+}
