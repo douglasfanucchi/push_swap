@@ -27,3 +27,12 @@ TEST(ft_parse, itShouldReturnFalseWhenStringIsEmpty) {
 
 	ASSERT_FALSE(result);
 }
+
+
+TEST(ft_parse, itShouldReturnFalseWhenStringIsFlagButInvalid) {
+	const char *flag = "--any_flag";
+
+	t_bool result = ft_is_valid_flag(flag);
+
+	ASSERT_FALSE(result);
+}
