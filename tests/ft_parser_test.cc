@@ -36,3 +36,37 @@ TEST(ft_parse, itShouldReturnFalseWhenStringIsFlagButInvalid) {
 
 	ASSERT_FALSE(result);
 }
+
+TEST(ft_parse, itShouldReturnTrueWhenStringIsAdaptativeFlag) {
+	const char *flag = "--adaptative";
+
+	t_bool result = ft_is_valid_flag(flag);
+
+	ASSERT_TRUE(result);
+}
+
+TEST(ft_parse, itShouldReturnTrueWhenStringIsSimpleFlag) {
+	const char *flag = "--simple";
+
+	t_bool result = ft_is_valid_flag(flag);
+
+	ASSERT_TRUE(result);
+}
+
+TEST(ft_parse, itShouldReturnTrueWhenStringIsMediumFlag) {
+	const char *flag = "--medium";
+
+	t_bool result = ft_is_valid_flag(flag);
+
+	ASSERT_TRUE(result);
+}
+
+TEST(ft_parse, itShouldReturnTrueWhenStringIsComplexFlag) {
+	const char *flag = "--complex";
+
+	t_bool result = ft_is_valid_flag(flag);
+
+	ASSERT_TRUE(result);
+}
+
+
