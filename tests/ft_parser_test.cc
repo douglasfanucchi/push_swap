@@ -108,3 +108,11 @@ TEST(ft_parse, itShouldReturnFalseWhenInputHasAnyNonNumericChar) {
 
 	ASSERT_FALSE(result);
 }
+
+TEST(ft_parse, itShouldReturnTrueWhenInputHasSpaceSeparatedNumbers) {
+	const char *input = "            42        43              ";
+
+	t_bool result = ft_is_valid_numeric_input(input);
+
+	ASSERT_TRUE(result);
+}
