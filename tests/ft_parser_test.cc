@@ -69,6 +69,14 @@ TEST(ft_parse, itShouldReturnTrueWhenStringIsComplexFlag) {
 	ASSERT_TRUE(result);
 }
 
+TEST(ft_parse, itShouldReturnTrueWhenStringIsBenchFlag) {
+	const char *flag = "--bench";
+
+	t_bool result = ft_is_valid_flag(flag);
+
+	ASSERT_TRUE(result);
+}
+
 TEST(ft_parse, itShouldReturnTrueWhenInputIsANumber) {
 	const char *input = "42";
 
