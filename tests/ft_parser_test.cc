@@ -132,3 +132,12 @@ TEST(ft_parse, itShouldReturnFalseWhenInputIsGreaterThanMaximumInteger) {
 
 	ASSERT_FALSE(result);
 }
+
+
+TEST(ft_parse, itShouldReturnFalseWhenInputIsLessThanMinimumInteger) {
+	const char *input = "-2147483649";
+
+	t_bool result = ft_is_valid_numeric_input(input);
+
+	ASSERT_FALSE(result);
+}
