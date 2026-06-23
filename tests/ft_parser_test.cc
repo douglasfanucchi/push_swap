@@ -19,3 +19,11 @@ TEST(ft_parse, itShouldReturnFalseWhenStringIsNotAFlag) {
 
 	ASSERT_FALSE(result);
 }
+
+TEST(ft_parse, itShouldReturnFalseWhenStringIsEmpty) {
+	const char *flag = "";
+
+	t_bool result = ft_is_valid_flag(flag);
+
+	ASSERT_FALSE(result);
+}
