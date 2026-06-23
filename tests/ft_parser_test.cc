@@ -100,3 +100,11 @@ TEST(ft_parse, itShouldReturnFalseWhenInputHasMoreThanOneSign) {
 
 	ASSERT_FALSE(result);
 }
+
+TEST(ft_parse, itShouldReturnFalseWhenInputHasAnyNonNumericChar) {
+	const char *input = "a42";
+
+	t_bool result = ft_is_valid_numeric_input(input);
+
+	ASSERT_FALSE(result);
+}
