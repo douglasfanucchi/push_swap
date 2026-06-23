@@ -124,3 +124,11 @@ TEST(ft_parse, itShouldReturnFalseWhenInputIsEmpty) {
 
 	ASSERT_FALSE(result);
 }
+
+TEST(ft_parse, itShouldReturnFalseWhenInputIsGreaterThanMaximumInteger) {
+	const char *input = "2147483648";
+
+	t_bool result = ft_is_valid_numeric_input(input);
+
+	ASSERT_FALSE(result);
+}
