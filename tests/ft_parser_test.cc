@@ -84,3 +84,11 @@ TEST(ft_parse, itShouldReturnTrueWhenInputIsANegativeNumber) {
 
 	ASSERT_TRUE(result);
 }
+
+TEST(ft_parse, itShouldReturnTrueWhenInputIsPositiveSignedNumber) {
+	const char *input = "+42";
+
+	t_bool result = ft_is_valid_numeric_input(input);
+
+	ASSERT_TRUE(result);
+}
