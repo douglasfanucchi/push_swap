@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 19:06:05 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/23 19:09:23 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/23 19:12:46 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_bool	ft_is_valid_flag(const char *str)
 	return (FALSE);
 }
 
-t_bool	ft_is_valid_numeric_input(const char *str)
+t_bool	ft_is_valid_numeric_set(const char *str)
 {
 	size_t	i;
 	long	n;
@@ -59,7 +59,7 @@ t_bool	ft_is_valid_numeric_input(const char *str)
 	}
 	while (str[i] == ' ')
 		i++;
-	if (str[i] && !ft_is_valid_numeric_input(str + i))
+	if (str[i] && !ft_is_valid_numeric_set(str + i))
 		return (FALSE);
 	n = ft_atol(str);
 	if (n > INT_MAX || n < INT_MIN)

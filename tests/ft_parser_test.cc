@@ -72,7 +72,7 @@ TEST(ft_parse, itShouldReturnTrueWhenStringIsComplexFlag) {
 TEST(ft_parse, itShouldReturnTrueWhenInputIsANumber) {
 	const char *input = "42";
 
-	t_bool result = ft_is_valid_numeric_input(input);
+	t_bool result = ft_is_valid_numeric_set(input);
 
 	ASSERT_TRUE(result);
 }
@@ -80,7 +80,7 @@ TEST(ft_parse, itShouldReturnTrueWhenInputIsANumber) {
 TEST(ft_parse, itShouldReturnTrueWhenInputIsANegativeNumber) {
 	const char *input = "-42";
 
-	t_bool result = ft_is_valid_numeric_input(input);
+	t_bool result = ft_is_valid_numeric_set(input);
 
 	ASSERT_TRUE(result);
 }
@@ -88,7 +88,7 @@ TEST(ft_parse, itShouldReturnTrueWhenInputIsANegativeNumber) {
 TEST(ft_parse, itShouldReturnTrueWhenInputIsPositiveSignedNumber) {
 	const char *input = "+42";
 
-	t_bool result = ft_is_valid_numeric_input(input);
+	t_bool result = ft_is_valid_numeric_set(input);
 
 	ASSERT_TRUE(result);
 }
@@ -96,7 +96,7 @@ TEST(ft_parse, itShouldReturnTrueWhenInputIsPositiveSignedNumber) {
 TEST(ft_parse, itShouldReturnFalseWhenInputHasMoreThanOneSign) {
 	const char *input = "++42";
 
-	t_bool result = ft_is_valid_numeric_input(input);
+	t_bool result = ft_is_valid_numeric_set(input);
 
 	ASSERT_FALSE(result);
 }
@@ -104,7 +104,7 @@ TEST(ft_parse, itShouldReturnFalseWhenInputHasMoreThanOneSign) {
 TEST(ft_parse, itShouldReturnFalseWhenInputHasAnyNonNumericChar) {
 	const char *input = "a42";
 
-	t_bool result = ft_is_valid_numeric_input(input);
+	t_bool result = ft_is_valid_numeric_set(input);
 
 	ASSERT_FALSE(result);
 }
@@ -112,7 +112,7 @@ TEST(ft_parse, itShouldReturnFalseWhenInputHasAnyNonNumericChar) {
 TEST(ft_parse, itShouldReturnTrueWhenInputHasSpaceSeparatedNumbers) {
 	const char *input = "            42        43              ";
 
-	t_bool result = ft_is_valid_numeric_input(input);
+	t_bool result = ft_is_valid_numeric_set(input);
 
 	ASSERT_TRUE(result);
 }
@@ -120,7 +120,7 @@ TEST(ft_parse, itShouldReturnTrueWhenInputHasSpaceSeparatedNumbers) {
 TEST(ft_parse, itShouldReturnFalseWhenInputIsEmpty) {
 	const char *input = "";
 
-	t_bool result = ft_is_valid_numeric_input(input);
+	t_bool result = ft_is_valid_numeric_set(input);
 
 	ASSERT_FALSE(result);
 }
@@ -128,7 +128,7 @@ TEST(ft_parse, itShouldReturnFalseWhenInputIsEmpty) {
 TEST(ft_parse, itShouldReturnFalseWhenInputIsGreaterThanMaximumInteger) {
 	const char *input = "2147483648";
 
-	t_bool result = ft_is_valid_numeric_input(input);
+	t_bool result = ft_is_valid_numeric_set(input);
 
 	ASSERT_FALSE(result);
 }
@@ -137,7 +137,7 @@ TEST(ft_parse, itShouldReturnFalseWhenInputIsGreaterThanMaximumInteger) {
 TEST(ft_parse, itShouldReturnFalseWhenInputIsLessThanMinimumInteger) {
 	const char *input = "-2147483649";
 
-	t_bool result = ft_is_valid_numeric_input(input);
+	t_bool result = ft_is_valid_numeric_set(input);
 
 	ASSERT_FALSE(result);
 }
