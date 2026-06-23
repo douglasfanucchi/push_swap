@@ -11,3 +11,11 @@ TEST(ft_parse, itShouldReturnTrueWhenStringIsAFlag) {
 
 	ASSERT_TRUE(result);
 }
+
+TEST(ft_parse, itShouldReturnFalseWhenStringIsNotAFlag) {
+	const char *flag = "adaptative";
+
+	t_bool result = ft_is_valid_flag(flag);
+
+	ASSERT_FALSE(result);
+}
