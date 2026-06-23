@@ -76,3 +76,11 @@ TEST(ft_parse, itShouldReturnTrueWhenInputIsANumber) {
 
 	ASSERT_TRUE(result);
 }
+
+TEST(ft_parse, itShouldReturnTrueWhenInputIsANegativeNumber) {
+	const char *input = "-42";
+
+	t_bool result = ft_is_valid_numeric_input(input);
+
+	ASSERT_TRUE(result);
+}
