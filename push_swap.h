@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/18 19:17:59 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/23 15:41:32 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,20 @@ typedef struct s_state {
 	int		total_ops;
 	t_list	*ops;
 }	t_state;
+
+typedef enum e_strategy {
+	adaptative,
+	simple,
+	medium,
+	complex
+} t_strategy;
+
+typedef struct s_program {
+	t_bool		bench;
+	t_state		*state;
+	double		disorder;
+	t_strategy	strategy;
+} t_program;
 
 t_dlist	*ft_dlstnew(int n);
 void	ft_dlstadd_front(t_dlist **head, t_dlist *_new);
