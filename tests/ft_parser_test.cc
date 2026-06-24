@@ -189,3 +189,12 @@ TEST(ft_parser, itShouldReturnTrueWhenInputIsAFlag) {
 
 	ASSERT_TRUE(result);
 }
+
+TEST(ft_parser, itShouldUpdateBenchStateInTheProgramWhenFlagIsBenchRelated) {
+	const char *input = "--bench";
+	t_program	program;
+
+	ft_program_flag_update(input, &program);
+
+	ASSERT_EQ(TRUE, program.bench);
+}
