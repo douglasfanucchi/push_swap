@@ -208,7 +208,6 @@ TEST(ft_parser, itShouldSetStrategyAsAdaptativeWhenInputIsAdaptativeFlag) {
 	ASSERT_EQ(adaptative, program.strategy);
 }
 
-
 TEST(ft_parser, itShouldSetStrategyAsSimpleWhenInputIsSimpleFlag) {
 	const char *input = "--simple";
 	t_program	program;
@@ -216,4 +215,13 @@ TEST(ft_parser, itShouldSetStrategyAsSimpleWhenInputIsSimpleFlag) {
 	ft_program_flag_update(input, &program);
 
 	ASSERT_EQ(simple, program.strategy);
+}
+
+TEST(ft_parser, itShouldSetStrategyAsMediumWhenInputIsMediumFlag) {
+	const char *input = "--medium";
+	t_program	program;
+
+	ft_program_flag_update(input, &program);
+
+	ASSERT_EQ(medium, program.strategy);
 }
