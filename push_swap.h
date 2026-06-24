@@ -66,6 +66,12 @@ typedef struct s_int_arr {
 	int *numbers;
 } t_int_arr;
 
+typedef struct s_arr {
+	int 	len;
+	void	*elements;
+	t_bool	(*less_than)(void *, void *);
+} t_arr;
+
 t_dlist	*ft_dlstnew(int n);
 void	ft_dlstadd_front(t_dlist **head, t_dlist *_new);
 void	ft_dlstadd_back(t_dlist **head, t_dlist *_new);
@@ -89,7 +95,7 @@ void	ft_state_clear(t_state *state);
 t_bool	ft_is_valid_flag(const char *str);
 t_bool	ft_is_valid_numeric_set(const char *str);
 t_int_arr	ft_convert_numbers_input_to_int_array(const char **input);
-void		ft_quicksort(t_int_arr arr);
+void		ft_quicksort(t_arr arr);
 t_bool		ft_has_duplicated_numbers(const char **number_sets);
 t_bool		ft_is_flag(const char *str);
 void		ft_program_flag_update(const char *input, t_program *program);
