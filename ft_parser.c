@@ -67,3 +67,26 @@ t_bool	ft_is_valid_numeric_set(const char *str)
 		return (FALSE);
 	return (TRUE);
 }
+
+t_bool	ft_has_duplicated_numbers(const char **number_sets)
+{
+	t_int_arr	arr;
+	int			i;
+
+	arr = ft_convert_numbers_input_to_int_array(number_sets);
+	if (arr.len == 0)
+		return (TRUE);
+	ft_quicksort(arr);
+	i = 0;
+	while (i < arr.len - 1)
+	{
+		if (arr.numbers[i] == arr.numbers[i + 1])
+		{
+			free(arr.numbers);
+			return (TRUE);
+		}
+		i++;
+	}
+	free(arr.numbers);
+	return (FALSE);
+}
