@@ -92,6 +92,7 @@ t_int_arr	ft_convert_numbers_input_to_int_array(const char **input);
 void		ft_quicksort(t_int_arr arr);
 t_bool		ft_has_duplicated_numbers(const char **number_sets);
 t_bool		ft_is_flag(const char *str);
+void		ft_program_flag_update(const char *input, t_program *program);
 
 
 #endif

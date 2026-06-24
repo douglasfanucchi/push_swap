@@ -88,3 +88,17 @@ t_bool	ft_has_duplicated_numbers(const char **number_sets)
 	free(arr.numbers);
 	return (FALSE);
 }
+
+void	ft_program_flag_update(const char *input, t_program *program)
+{
+	if (ft_strcmp(input, "--adaptative") == 0)
+		program->strategy = adaptative;
+	else if (ft_strcmp(input, "--simple") == 0)
+		program->strategy = simple;
+	else if(ft_strcmp(input, "--medium") == 0)
+		program->strategy = medium;
+	else if(ft_strcmp(input, "--complex") == 0)
+		program->strategy = complex;
+	else if(ft_strcmp(input, "--bench") == 0)
+		program->bench = TRUE;
+}
