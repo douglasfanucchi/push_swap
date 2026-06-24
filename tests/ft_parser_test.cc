@@ -207,3 +207,13 @@ TEST(ft_parser, itShouldSetStrategyAsAdaptativeWhenInputIsAdaptativeFlag) {
 
 	ASSERT_EQ(adaptative, program.strategy);
 }
+
+
+TEST(ft_parser, itShouldSetStrategyAsSimpleWhenInputIsSimpleFlag) {
+	const char *input = "--simple";
+	t_program	program;
+
+	ft_program_flag_update(input, &program);
+
+	ASSERT_EQ(simple, program.strategy);
+}
