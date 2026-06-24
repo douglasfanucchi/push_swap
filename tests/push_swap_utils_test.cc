@@ -126,3 +126,22 @@ TEST(push_swap_utils, itShouldConvertNumbersInputToAUniDimensionalIntegerArray) 
 
 	free(result.numbers);
 }
+
+TEST(push_swap_utils, itShouldSortAnIntegerArray) {
+	t_int_arr arr;
+	arr.len = 7;
+	arr.numbers = (int *)malloc(sizeof(int) * 7);
+	ft_memmove(arr.numbers, (int[]){1, 2, 3, 42, -100, 2147483647, -2147483648}, 7 * sizeof(int));
+
+	ft_quicksort(arr);
+
+	ASSERT_EQ(-2147483648, arr.numbers[0]);
+	ASSERT_EQ(-100, arr.numbers[1]);
+	ASSERT_EQ(1, arr.numbers[2]);
+	ASSERT_EQ(2, arr.numbers[3]);
+	ASSERT_EQ(3, arr.numbers[4]);
+	ASSERT_EQ(42, arr.numbers[5]);
+	ASSERT_EQ(2147483647, arr.numbers[6]);
+
+	free(arr.numbers);
+}
