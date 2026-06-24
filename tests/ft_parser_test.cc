@@ -198,3 +198,12 @@ TEST(ft_parser, itShouldUpdateBenchStateInTheProgramWhenFlagIsBenchRelated) {
 
 	ASSERT_EQ(TRUE, program.bench);
 }
+
+TEST(ft_parser, itShouldSetStrategyAsAdaptativeWhenInputIsAdaptativeFlag) {
+	const char *input = "--adaptative";
+	t_program	program;
+
+	ft_program_flag_update(input, &program);
+
+	ASSERT_EQ(adaptative, program.strategy);
+}
