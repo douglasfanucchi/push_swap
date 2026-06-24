@@ -225,3 +225,12 @@ TEST(ft_parser, itShouldSetStrategyAsMediumWhenInputIsMediumFlag) {
 
 	ASSERT_EQ(medium, program.strategy);
 }
+
+TEST(ft_parser, itShouldSetStrategyAsComplexWhenInputIsComplexFlag) {
+	const char *input = "--complex";
+	t_program	program;
+
+	ft_program_flag_update(input, &program);
+
+	ASSERT_EQ(complex, program.strategy);
+}
