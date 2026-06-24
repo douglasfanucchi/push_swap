@@ -103,3 +103,26 @@ TEST(push_swap_utils, itShouldGetLabelFromReverseRotateBothOperation) {
 	ASSERT_STREQ("rrr", result);
 	free(result);
 }
+
+TEST(push_swap_utils, itShouldConvertNumbersInputToAUniDimensionalIntegerArray) {
+	const char **input;
+	input = (const char *[]){
+		"1 2 3",
+		"+42 -100",
+		"2147483647 -2147483648",
+		NULL
+	};
+
+	t_int_arr result = ft_convert_numbers_input_to_int_array(input);
+
+	ASSERT_EQ(7, result.len);
+	ASSERT_EQ(1, result.numbers[0]);
+	ASSERT_EQ(2, result.numbers[1]);
+	ASSERT_EQ(3, result.numbers[2]);
+	ASSERT_EQ(42, result.numbers[3]);
+	ASSERT_EQ(-100, result.numbers[4]);
+	ASSERT_EQ(2147483647, result.numbers[5]);
+	ASSERT_EQ(-2147483648, result.numbers[6]);
+
+	free(result.numbers);
+}
