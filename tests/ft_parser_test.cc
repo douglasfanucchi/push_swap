@@ -173,3 +173,11 @@ TEST(ft_parser, itShouldReturnFalseWhenInputDoesNotHaveDuplicatedNumbers) {
 
 	ASSERT_FALSE(result);
 }
+
+TEST(ft_parser, itShouldReturnFalseWhenInputIsNotAFlag) {
+	const char *input = "any_text";
+
+	t_bool result = ft_is_flag(input);
+
+	ASSERT_FALSE(result);
+}
