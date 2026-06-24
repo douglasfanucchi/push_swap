@@ -181,3 +181,11 @@ TEST(ft_parser, itShouldReturnFalseWhenInputIsNotAFlag) {
 
 	ASSERT_FALSE(result);
 }
+
+TEST(ft_parser, itShouldReturnTrueWhenInputIsAFlag) {
+	const char *input = "--any_flag";
+
+	t_bool result = ft_is_flag(input);
+
+	ASSERT_TRUE(result);
+}
