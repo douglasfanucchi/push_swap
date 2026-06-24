@@ -106,3 +106,31 @@ t_int_arr	ft_convert_numbers_input_to_int_array(const char **input)
 	ft_lstclear(&list, free);
 	return (arr);
 }
+
+void	ft_quicksort(t_int_arr arr)
+{
+	t_int_arr	arr_left;
+	t_int_arr	arr_right;
+	int			pivot;
+	int			l;
+	int			r;
+
+	if (arr.len < 2)
+		return ;
+	pivot = arr.len - 1;
+	l = 0;
+	r = 0;
+	while (r < arr.len)
+	{
+		if (arr.numbers[r] < arr.numbers[pivot])
+			ft_swap(arr.numbers + r, arr.numbers + l++);
+		r++;
+	}
+	ft_swap(arr.numbers + pivot, arr.numbers + l);
+	arr_left.len = l;
+	arr_left.numbers = arr.numbers;
+	arr_right.len = arr.len - l - 1;
+	arr_right.numbers = arr.numbers + l + 1;
+	ft_quicksort(arr_left);
+	ft_quicksort(arr_right);
+}

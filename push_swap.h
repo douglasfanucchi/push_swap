@@ -89,6 +89,7 @@ void	ft_state_clear(t_state *state);
 t_bool	ft_is_valid_flag(const char *str);
 t_bool	ft_is_valid_numeric_set(const char *str);
 t_int_arr	ft_convert_numbers_input_to_int_array(const char **input);
+void		ft_quicksort(t_int_arr arr);
 
 
 #endif
