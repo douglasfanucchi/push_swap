@@ -4,7 +4,7 @@ extern "C" {
 	#include "push_swap.h"
 }
 
-TEST(ft_parse, itShouldReturnTrueWhenStringIsAFlag) {
+TEST(ft_parser, itShouldReturnTrueWhenStringIsAFlag) {
 	const char *flag = "--adaptative";
 
 	t_bool result = ft_is_valid_flag(flag);
@@ -12,7 +12,7 @@ TEST(ft_parse, itShouldReturnTrueWhenStringIsAFlag) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parse, itShouldReturnFalseWhenStringIsNotAFlag) {
+TEST(ft_parser, itShouldReturnFalseWhenStringIsNotAFlag) {
 	const char *flag = "adaptative";
 
 	t_bool result = ft_is_valid_flag(flag);
@@ -20,7 +20,7 @@ TEST(ft_parse, itShouldReturnFalseWhenStringIsNotAFlag) {
 	ASSERT_FALSE(result);
 }
 
-TEST(ft_parse, itShouldReturnFalseWhenStringIsEmpty) {
+TEST(ft_parser, itShouldReturnFalseWhenStringIsEmpty) {
 	const char *flag = "";
 
 	t_bool result = ft_is_valid_flag(flag);
@@ -29,7 +29,7 @@ TEST(ft_parse, itShouldReturnFalseWhenStringIsEmpty) {
 }
 
 
-TEST(ft_parse, itShouldReturnFalseWhenStringIsFlagButInvalid) {
+TEST(ft_parser, itShouldReturnFalseWhenStringIsFlagButInvalid) {
 	const char *flag = "--any_flag";
 
 	t_bool result = ft_is_valid_flag(flag);
@@ -37,7 +37,7 @@ TEST(ft_parse, itShouldReturnFalseWhenStringIsFlagButInvalid) {
 	ASSERT_FALSE(result);
 }
 
-TEST(ft_parse, itShouldReturnTrueWhenStringIsAdaptativeFlag) {
+TEST(ft_parser, itShouldReturnTrueWhenStringIsAdaptativeFlag) {
 	const char *flag = "--adaptative";
 
 	t_bool result = ft_is_valid_flag(flag);
@@ -45,7 +45,7 @@ TEST(ft_parse, itShouldReturnTrueWhenStringIsAdaptativeFlag) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parse, itShouldReturnTrueWhenStringIsSimpleFlag) {
+TEST(ft_parser, itShouldReturnTrueWhenStringIsSimpleFlag) {
 	const char *flag = "--simple";
 
 	t_bool result = ft_is_valid_flag(flag);
@@ -53,7 +53,7 @@ TEST(ft_parse, itShouldReturnTrueWhenStringIsSimpleFlag) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parse, itShouldReturnTrueWhenStringIsMediumFlag) {
+TEST(ft_parser, itShouldReturnTrueWhenStringIsMediumFlag) {
 	const char *flag = "--medium";
 
 	t_bool result = ft_is_valid_flag(flag);
@@ -61,7 +61,7 @@ TEST(ft_parse, itShouldReturnTrueWhenStringIsMediumFlag) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parse, itShouldReturnTrueWhenStringIsComplexFlag) {
+TEST(ft_parser, itShouldReturnTrueWhenStringIsComplexFlag) {
 	const char *flag = "--complex";
 
 	t_bool result = ft_is_valid_flag(flag);
@@ -69,7 +69,7 @@ TEST(ft_parse, itShouldReturnTrueWhenStringIsComplexFlag) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parse, itShouldReturnTrueWhenStringIsBenchFlag) {
+TEST(ft_parser, itShouldReturnTrueWhenStringIsBenchFlag) {
 	const char *flag = "--bench";
 
 	t_bool result = ft_is_valid_flag(flag);
@@ -77,7 +77,7 @@ TEST(ft_parse, itShouldReturnTrueWhenStringIsBenchFlag) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parse, itShouldReturnTrueWhenInputIsANumber) {
+TEST(ft_parser, itShouldReturnTrueWhenInputIsANumber) {
 	const char *input = "42";
 
 	t_bool result = ft_is_valid_numeric_set(input);
@@ -85,7 +85,7 @@ TEST(ft_parse, itShouldReturnTrueWhenInputIsANumber) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parse, itShouldReturnTrueWhenInputIsANegativeNumber) {
+TEST(ft_parser, itShouldReturnTrueWhenInputIsANegativeNumber) {
 	const char *input = "-42";
 
 	t_bool result = ft_is_valid_numeric_set(input);
@@ -93,7 +93,7 @@ TEST(ft_parse, itShouldReturnTrueWhenInputIsANegativeNumber) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parse, itShouldReturnTrueWhenInputIsPositiveSignedNumber) {
+TEST(ft_parser, itShouldReturnTrueWhenInputIsPositiveSignedNumber) {
 	const char *input = "+42";
 
 	t_bool result = ft_is_valid_numeric_set(input);
@@ -101,7 +101,7 @@ TEST(ft_parse, itShouldReturnTrueWhenInputIsPositiveSignedNumber) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parse, itShouldReturnFalseWhenInputHasMoreThanOneSign) {
+TEST(ft_parser, itShouldReturnFalseWhenInputHasMoreThanOneSign) {
 	const char *input = "++42";
 
 	t_bool result = ft_is_valid_numeric_set(input);
@@ -109,7 +109,7 @@ TEST(ft_parse, itShouldReturnFalseWhenInputHasMoreThanOneSign) {
 	ASSERT_FALSE(result);
 }
 
-TEST(ft_parse, itShouldReturnFalseWhenInputHasAnyNonNumericChar) {
+TEST(ft_parser, itShouldReturnFalseWhenInputHasAnyNonNumericChar) {
 	const char *input = "a42";
 
 	t_bool result = ft_is_valid_numeric_set(input);
@@ -117,7 +117,7 @@ TEST(ft_parse, itShouldReturnFalseWhenInputHasAnyNonNumericChar) {
 	ASSERT_FALSE(result);
 }
 
-TEST(ft_parse, itShouldReturnTrueWhenInputHasSpaceSeparatedNumbers) {
+TEST(ft_parser, itShouldReturnTrueWhenInputHasSpaceSeparatedNumbers) {
 	const char *input = "            42        43              ";
 
 	t_bool result = ft_is_valid_numeric_set(input);
@@ -125,7 +125,7 @@ TEST(ft_parse, itShouldReturnTrueWhenInputHasSpaceSeparatedNumbers) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parse, itShouldReturnFalseWhenInputIsEmpty) {
+TEST(ft_parser, itShouldReturnFalseWhenInputIsEmpty) {
 	const char *input = "";
 
 	t_bool result = ft_is_valid_numeric_set(input);
@@ -133,7 +133,7 @@ TEST(ft_parse, itShouldReturnFalseWhenInputIsEmpty) {
 	ASSERT_FALSE(result);
 }
 
-TEST(ft_parse, itShouldReturnFalseWhenInputIsGreaterThanMaximumInteger) {
+TEST(ft_parser, itShouldReturnFalseWhenInputIsGreaterThanMaximumInteger) {
 	const char *input = "2147483648";
 
 	t_bool result = ft_is_valid_numeric_set(input);
@@ -142,7 +142,7 @@ TEST(ft_parse, itShouldReturnFalseWhenInputIsGreaterThanMaximumInteger) {
 }
 
 
-TEST(ft_parse, itShouldReturnFalseWhenInputIsLessThanMinimumInteger) {
+TEST(ft_parser, itShouldReturnFalseWhenInputIsLessThanMinimumInteger) {
 	const char *input = "-2147483649";
 
 	t_bool result = ft_is_valid_numeric_set(input);
@@ -150,7 +150,7 @@ TEST(ft_parse, itShouldReturnFalseWhenInputIsLessThanMinimumInteger) {
 	ASSERT_FALSE(result);
 }
 
-TEST(ft_parase, itShouldReturnTrueWhenInputHasDuplicatedNumbers) {
+TEST(ft_parser, itShouldReturnTrueWhenInputHasDuplicatedNumbers) {
 	const char **input;
 	input = (const char *[]){
 		"1 2 42",
@@ -162,7 +162,7 @@ TEST(ft_parase, itShouldReturnTrueWhenInputHasDuplicatedNumbers) {
 	ASSERT_TRUE(result);
 }
 
-TEST(ft_parase, itShouldReturnFalseWhenInputDoesNotHaveDuplicatedNumbers) {
+TEST(ft_parser, itShouldReturnFalseWhenInputDoesNotHaveDuplicatedNumbers) {
 	const char **input;
 	input = (const char *[]){
 		"1 2 42",
