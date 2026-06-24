@@ -161,3 +161,15 @@ TEST(ft_parase, itShouldReturnTrueWhenInputHasDuplicatedNumbers) {
 
 	ASSERT_TRUE(result);
 }
+
+TEST(ft_parase, itShouldReturnFalseWhenInputDoesNotHaveDuplicatedNumbers) {
+	const char **input;
+	input = (const char *[]){
+		"1 2 42",
+		"5"
+	};
+
+	t_bool result = ft_has_duplicated_numbers(input);
+
+	ASSERT_FALSE(result);
+}
