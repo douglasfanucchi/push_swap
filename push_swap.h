@@ -61,6 +61,11 @@ typedef struct s_program {
 	t_strategy	strategy;
 } t_program;
 
+typedef struct s_int_arr {
+	int len;
+	int *numbers;
+} t_int_arr;
+
 t_dlist	*ft_dlstnew(int n);
 void	ft_dlstadd_front(t_dlist **head, t_dlist *_new);
 void	ft_dlstadd_back(t_dlist **head, t_dlist *_new);
@@ -83,6 +88,7 @@ t_bool	ft_state_update(t_state *state, t_operations op);
 void	ft_state_clear(t_state *state);
 t_bool	ft_is_valid_flag(const char *str);
 t_bool	ft_is_valid_numeric_set(const char *str);
+t_int_arr	ft_convert_numbers_input_to_int_array(const char **input);
 
 
 #endif

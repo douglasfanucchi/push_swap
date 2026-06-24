@@ -38,3 +38,71 @@ char	*ft_get_operation_label(t_operations op)
 		return (ft_strdup("rrr"));
 	return (NULL);
 }
+
+static void	free_matrix(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+		free(strs[i++]);
+	free(strs);
+}
+
+static t_list	*ft_convert_numbers_input_to_tlist(const char **input)
+{
+	int		j;
+	char	**set;
+	t_list	*list;
+	int		*number;
+
+	list = NULL;
+	while (*input)
+	{
+		j = 0;
+		set = ft_split(*(input++), ' ');
+		while (set[j])
+		{
+			number = (int *)malloc(sizeof(int));
+			if (!number)
+			{
+				ft_lstclear(&list, free);
+				free_matrix(set);
+				return (NULL);
+			}
+			*number = ft_atoi(set[j++]);
+			ft_lstadd_back(&list, ft_lstnew(number));
+		}
+		free_matrix(set);
+	}
+	return (list);
+}
+
+t_int_arr	ft_convert_numbers_input_to_int_array(const char **input)
+{
+	int			i;
+	t_int_arr	arr;
+	t_list		*list;
+	t_list		*node;
+
+	arr.len = 0;
+	list = ft_convert_numbers_input_to_tlist(input);
+	if (!list)
+		return (arr);
+	arr.numbers = malloc(sizeof(int) * (ft_lstsize(list)));
+	if (!arr.numbers)
+	{
+		ft_lstclear(&list, free);
+		return (arr);
+	}
+	node = list;
+	i = 0;
+	while (node)
+	{
+		arr.numbers[i++] = *((int *)node->content);
+		node = node->next;
+	}
+	arr.len = i;
+	ft_lstclear(&list, free);
+	return (arr);
+}
