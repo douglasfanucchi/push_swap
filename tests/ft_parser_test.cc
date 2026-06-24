@@ -149,3 +149,15 @@ TEST(ft_parse, itShouldReturnFalseWhenInputIsLessThanMinimumInteger) {
 
 	ASSERT_FALSE(result);
 }
+
+TEST(ft_parase, itShouldReturnTrueWhenInputHasDuplicatedNumbers) {
+	const char **input;
+	input = (const char *[]){
+		"1 2 42",
+		"42"
+	};
+
+	t_bool result = ft_has_duplicated_numbers(input);
+
+	ASSERT_TRUE(result);
+}
