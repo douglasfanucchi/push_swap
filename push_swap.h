@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/25 18:51:44 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:56:06 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,6 @@ t_bool		ft_has_duplicated_numbers(const char **number_sets);
 t_bool		ft_is_flag(const char *str);
 void		ft_program_flag_update(const char *input, t_program *program);
 t_arr		ft_normalize_int_arr(t_arr *arr);
-
+t_stack		ft_int_arr_to_normalized_stack(t_arr *arr);
 
 #endif
