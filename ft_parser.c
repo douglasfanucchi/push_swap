@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 19:06:05 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/23 19:13:53 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:20:55 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,24 +68,26 @@ t_bool	ft_is_valid_numeric_set(const char *str)
 
 t_bool	ft_has_duplicated_numbers(const char **number_sets)
 {
-	t_int_arr	arr;
-	int			i;
+	t_arr	arr;
+	int		i;
+	int		*numbers;
 
 	arr = ft_convert_numbers_input_to_int_array(number_sets);
+	numbers = (int *)arr.elements;
 	if (arr.len == 0)
 		return (TRUE);
-	ft_quicksort(arr);
+	ft_quicksort(arr, sizeof(int), ft_less_than_int, ft_swap_int);
 	i = 0;
 	while (i < arr.len - 1)
 	{
-		if (arr.numbers[i] == arr.numbers[i + 1])
+		if (numbers[i] == numbers[i + 1])
 		{
-			free(arr.numbers);
+			free(numbers);
 			return (TRUE);
 		}
 		i++;
 	}
-	free(arr.numbers);
+	free(arr.elements);
 	return (FALSE);
 }
 

@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/25 15:26:46 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:27:32 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ void	ft_state_clear(t_state *state);
 t_bool	ft_is_valid_flag(const char *str);
 t_bool	ft_is_valid_numeric_set(const char *str);
 t_arr	ft_convert_numbers_input_to_int_array(const char **input);
-void		ft_quicksort(t_arr arr);
+t_bool	ft_less_than_int(void *elements, int i, int j);
+void	ft_swap_int(void *elements, int i, int j);
+void	ft_quicksort(t_arr arr, size_t bytes, t_bool (*lt)(void *, int ,int), void (*swap)(void *, int, int));
 t_bool		ft_has_duplicated_numbers(const char **number_sets);
 t_bool		ft_is_flag(const char *str);
 void		ft_program_flag_update(const char *input, t_program *program);

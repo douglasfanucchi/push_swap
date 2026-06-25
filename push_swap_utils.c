@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 19:17:21 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/18 19:29:45 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/25 14:36:17 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,19 +78,19 @@ static t_list	*ft_convert_numbers_input_to_tlist(const char **input)
 	return (list);
 }
 
-t_int_arr	ft_convert_numbers_input_to_int_array(const char **input)
+t_arr	ft_convert_numbers_input_to_int_array(const char **input)
 {
-	int			i;
-	t_int_arr	arr;
-	t_list		*list;
-	t_list		*node;
+	int		i;
+	t_arr	arr;
+	t_list	*list;
+	t_list	*node;
 
 	arr.len = 0;
 	list = ft_convert_numbers_input_to_tlist(input);
 	if (!list)
 		return (arr);
-	arr.numbers = malloc(sizeof(int) * (ft_lstsize(list)));
-	if (!arr.numbers)
+	arr.elements = malloc(sizeof(int) * (ft_lstsize(list)));
+	if (!arr.elements)
 	{
 		ft_lstclear(&list, free);
 		return (arr);
@@ -99,38 +99,10 @@ t_int_arr	ft_convert_numbers_input_to_int_array(const char **input)
 	i = 0;
 	while (node)
 	{
-		arr.numbers[i++] = *((int *)node->content);
+		((int *)arr.elements)[i++] = *((int *)node->content);
 		node = node->next;
 	}
 	arr.len = i;
 	ft_lstclear(&list, free);
 	return (arr);
-}
-
-void	ft_quicksort(t_int_arr arr)
-{
-	t_int_arr	arr_left;
-	t_int_arr	arr_right;
-	int			pivot;
-	int			l;
-	int			r;
-
-	if (arr.len < 2)
-		return ;
-	pivot = arr.len - 1;
-	l = 0;
-	r = 0;
-	while (r < arr.len)
-	{
-		if (arr.numbers[r] < arr.numbers[pivot])
-			ft_swap(arr.numbers + r, arr.numbers + l++);
-		r++;
-	}
-	ft_swap(arr.numbers + pivot, arr.numbers + l);
-	arr_left.len = l;
-	arr_left.numbers = arr.numbers;
-	arr_right.len = arr.len - l - 1;
-	arr_right.numbers = arr.numbers + l + 1;
-	ft_quicksort(arr_left);
-	ft_quicksort(arr_right);
 }
