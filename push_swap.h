@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/25 13:52:20 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/25 14:08:46 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,6 @@ typedef struct s_program {
 	double		disorder;
 	t_strategy	strategy;
 } t_program;
-
-typedef struct s_int_arr {
-	int len;
-	int *numbers;
-} t_int_arr;
 
 typedef struct s_arr {
 	int 	len;
