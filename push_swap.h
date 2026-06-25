@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/23 19:12:46 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/25 13:52:20 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ typedef struct s_int_arr {
 typedef struct s_arr {
 	int 	len;
 	void	*elements;
-	t_bool	(*less_than)(void *, void *);
 } t_arr;
 
 t_dlist	*ft_dlstnew(int n);
