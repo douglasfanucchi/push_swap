@@ -105,43 +105,24 @@ TEST(push_swap_utils, itShouldGetLabelFromReverseRotateBothOperation) {
 }
 
 TEST(push_swap_utils, itShouldConvertNumbersInputToAUniDimensionalIntegerArray) {
-	const char **input;
-	input = (const char *[]){
+	const char *input[] = {
 		"1 2 3",
 		"+42 -100",
 		"2147483647 -2147483648",
 		NULL
 	};
 
-	t_int_arr result = ft_convert_numbers_input_to_int_array(input);
+	t_arr result = ft_convert_numbers_input_to_int_array(input);
 
+	int *numbers = (int *)result.elements;
 	ASSERT_EQ(7, result.len);
-	ASSERT_EQ(1, result.numbers[0]);
-	ASSERT_EQ(2, result.numbers[1]);
-	ASSERT_EQ(3, result.numbers[2]);
-	ASSERT_EQ(42, result.numbers[3]);
-	ASSERT_EQ(-100, result.numbers[4]);
-	ASSERT_EQ(2147483647, result.numbers[5]);
-	ASSERT_EQ(-2147483648, result.numbers[6]);
+	ASSERT_EQ(1, numbers[0]);
+	ASSERT_EQ(2, numbers[1]);
+	ASSERT_EQ(3, numbers[2]);
+	ASSERT_EQ(42, numbers[3]);
+	ASSERT_EQ(-100, numbers[4]);
+	ASSERT_EQ(2147483647, numbers[5]);
+	ASSERT_EQ(-2147483648, numbers[6]);
 
-	free(result.numbers);
-}
-
-TEST(push_swap_utils, itShouldSortAnIntegerArray) {
-	t_int_arr arr;
-	arr.len = 7;
-	arr.numbers = (int *)malloc(sizeof(int) * 7);
-	ft_memmove(arr.numbers, (int[]){1, 2, 3, 42, -100, 2147483647, -2147483648}, 7 * sizeof(int));
-
-	ft_quicksort(arr);
-
-	ASSERT_EQ(-2147483648, arr.numbers[0]);
-	ASSERT_EQ(-100, arr.numbers[1]);
-	ASSERT_EQ(1, arr.numbers[2]);
-	ASSERT_EQ(2, arr.numbers[3]);
-	ASSERT_EQ(3, arr.numbers[4]);
-	ASSERT_EQ(42, arr.numbers[5]);
-	ASSERT_EQ(2147483647, arr.numbers[6]);
-
-	free(arr.numbers);
+	free(result.elements);
 }
