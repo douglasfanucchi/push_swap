@@ -5,4 +5,5 @@
 #include "push_swap_utils_test.cc"
 #include "ft_state_test.cc"
 #include "ft_parser_test.cc"
+#include "ft_parser_utils_test.cc"
 #include "ft_quicksort_test.cc"
