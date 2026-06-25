@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/25 15:49:26 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:47:52 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void	ft_quicksort(t_arr arr, size_t bytes, t_bool (*lt)(void *, int ,int), void 
 t_bool		ft_has_duplicated_numbers(const char **number_sets);
 t_bool		ft_is_flag(const char *str);
 void		ft_program_flag_update(const char *input, t_program *program);
+t_arr		ft_normalize_int_arr(t_arr arr);
 
 
 #endif
