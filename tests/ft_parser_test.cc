@@ -151,10 +151,10 @@ TEST(ft_parser, itShouldReturnFalseWhenInputIsLessThanMinimumInteger) {
 }
 
 TEST(ft_parser, itShouldReturnTrueWhenInputHasDuplicatedNumbers) {
-	const char **input;
-	input = (const char *[]){
+	const char *input[] = {
 		"1 2 42",
-		"42"
+		"42",
+		NULL
 	};
 
 	t_bool result = ft_has_duplicated_numbers(input);
@@ -163,10 +163,10 @@ TEST(ft_parser, itShouldReturnTrueWhenInputHasDuplicatedNumbers) {
 }
 
 TEST(ft_parser, itShouldReturnFalseWhenInputDoesNotHaveDuplicatedNumbers) {
-	const char **input;
-	input = (const char *[]){
+	const char *input[] = {
 		"1 2 42",
-		"5"
+		"5",
+		NULL
 	};
 
 	t_bool result = ft_has_duplicated_numbers(input);
