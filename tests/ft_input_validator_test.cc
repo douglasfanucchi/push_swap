@@ -59,3 +59,18 @@ TEST(ft_input_validator, itShouldReturnFalseWhenInputHasNonNumericValue) {
 
     ASSERT_FALSE(result);
 }
+
+TEST(ft_input_validator, itShouldReturnTrueWhenInputHasValidFlagsAndValidNumbers) {
+    const char *argv[] = {
+        "push_swap",
+        "--adaptative",
+        "1",
+        "3 100 -10",
+        "-2147483648",
+        NULL
+    };
+
+    t_bool result = ft_input_validator(argv + 1);
+
+    ASSERT_TRUE(result);
+}
