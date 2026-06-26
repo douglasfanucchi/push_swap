@@ -53,3 +53,17 @@ TEST(ft_parser, itShouldDefineStrategyAsAdaptativeAndBenchAsTrueWhenNotSpecifyin
 	ASSERT_EQ(adaptative, program.strategy);
 	ASSERT_TRUE(program.bench);
 }
+
+TEST(ft_parser, itShouldDefineStrategyAsComplexWhenItIsSpecified) {
+	t_program program;
+	const char *argv[] = {
+		"push_swap",
+		"--complex",
+		"1",
+		NULL
+	};
+
+	ft_parse_flags(&program, argv + 1);
+
+	ASSERT_EQ(complex, program.strategy);
+}
