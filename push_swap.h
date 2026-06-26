@@ -101,5 +101,6 @@ t_arr		ft_normalize_int_arr(t_arr *arr);
 t_stack		ft_int_arr_to_normalized_stack(t_arr *arr);
 void		ft_parse_flags(t_program *program, const char **input);
 t_stack		ft_parse_numbers(const char **input);
+t_bool		ft_input_validator(const char **input);
 
 #endif
