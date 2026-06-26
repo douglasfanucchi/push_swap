@@ -21,3 +21,25 @@ t_operations	ft_swap_a(t_stack *a, t_stack *b)
 	ft_stack_push(a, second);
 	return (sa);
 }
+
+t_operations	ft_swap_b(t_stack *a, t_stack *b)
+{
+	int	first;
+	int	second;
+
+	(void)a;
+	if (!b->size)
+		return (sb);
+	first = ft_stack_peek(b);
+	ft_stack_pop(b);
+	if (!b->size)
+	{
+		ft_stack_push(b, first);
+		return (sb);
+	}
+	second = ft_stack_peek(b);
+	ft_stack_pop(b);
+	ft_stack_push(b, first);
+	ft_stack_push(b, second);
+	return (sb);
+}
