@@ -19,3 +19,19 @@ TEST(ft_push, itShouldPushAnElementFromStackBToStackA) {
 
     ft_stack_clear(&a);
 }
+
+TEST(ft_push, itShouldPushAnElementFromStackAToStackB) {
+    t_stack a, b;
+    ft_stack_init(&a);
+    ft_stack_init(&b);
+    ft_stack_push(&a, 1);
+
+    t_operations operation = ft_push_b(&a, &b);
+
+    ASSERT_EQ(pb, operation);
+    ASSERT_EQ(1, ft_stack_peek(&b));
+    ASSERT_EQ(1, b.size);
+    ASSERT_EQ(0, a.size);
+
+    ft_stack_clear(&b);
+}
