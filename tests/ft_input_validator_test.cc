@@ -101,3 +101,15 @@ TEST(ft_input_validator, itShouldReturnFalseWhenInputHasNoFlagsOrNumbers) {
 
     ASSERT_FALSE(result);
 }
+
+TEST(ft_input_validator, itShouldReturnFalseWhenInputIsJustAFlag) {
+    const char *argv[] = {
+        "push_swap",
+        "--adaptative",
+        NULL
+    };
+
+    t_bool result = ft_input_validator(argv + 1);
+
+    ASSERT_FALSE(result);
+}
