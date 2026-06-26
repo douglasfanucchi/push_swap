@@ -55,7 +55,8 @@ void	ft_swap_pair(void *elements, int i, int j)
 	pairs[j] = tmp_pair;
 }
 
-void	ft_quicksort(t_arr arr, size_t bytes, t_bool (*less_than)(), void (*swap)())
+void	ft_quicksort(t_arr arr, size_t bytes, t_bool (*less_than)(void *, int, int),
+	void (*swap)(void *, int, int))
 {
 	t_arr	arr_left;
 	t_arr	arr_right;
