@@ -75,6 +75,25 @@ TEST(ft_input_validator, itShouldReturnTrueWhenInputHasValidFlagsAndValidNumbers
     ASSERT_TRUE(result);
 }
 
+TEST(ft_input_validator, itShouldReturnTrueWhenInputHasMoreThanOneValidFlags) {
+    const char *argv[] = {
+        "push_swap",
+        "--bench",
+        "--adaptative",
+        "--simple",
+        "--medium",
+        "--complex",
+        "1",
+        "3 100 -10",
+        "-2147483648",
+        NULL
+    };
+
+    t_bool result = ft_input_validator(argv + 1);
+
+    ASSERT_TRUE(result);
+}
+
 TEST(ft_input_validator, itShouldReturnFalseWhenInputHasInvalidFlags) {
     const char *argv[] = {
         "push_swap",
