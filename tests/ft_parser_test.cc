@@ -37,3 +37,19 @@ TEST(ft_parser, itShouldDefineStrategyAsAdaptativeAndBenchAsFalseWhenNotSpecifyi
 	ASSERT_EQ(adaptative, program.strategy);
 	ASSERT_FALSE(program.bench);
 }
+
+TEST(ft_parser, itShouldDefineStrategyAsAdaptativeAndBenchAsTrueWhenNotSpecifyingBothValues) {
+	t_program program;
+	const char *argv[] = {
+		"push_swap",
+		"--bench",
+		"--adaptative",
+		"1",
+		NULL
+	};
+
+	ft_parse_flags(&program, argv + 1);
+
+	ASSERT_EQ(adaptative, program.strategy);
+	ASSERT_TRUE(program.bench);
+}
