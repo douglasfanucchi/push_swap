@@ -17,3 +17,10 @@ t_operations	ft_reverse_rotate_b(t_stack *a, t_stack *b)
 	ft_stack_reverse_rotate(b);
 	return (rrb);
 }
+
+t_operations	ft_reverse_rotate_rrr(t_stack *a, t_stack *b)
+{
+	ft_reverse_rotate_a(a, NULL);
+	ft_reverse_rotate_b(NULL, b);
+	return (rrr);
+}
