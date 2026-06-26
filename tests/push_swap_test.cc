@@ -4,76 +4,76 @@ extern "C" {
 	#include "push_swap.h"
 }
 
-static t_operations	ft_swap_a(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_swap_a(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
 	return (sa);
 }
 
-static t_operations	ft_swap_b(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_swap_b(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
 	return (sb);
 }
 
-static t_operations	ft_swap_ss(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_swap_ss(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
 	return (ss);
 }
 
-static t_operations	ft_push_a(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_push_a(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
 	return (pa);
 }
 
-static t_operations	ft_push_b(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_push_b(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
 	return (pb);
 }
 
-static t_operations	ft_rotate_a(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_rotate_a(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
 	return (ra);
 }
 
-static t_operations	ft_rotate_b(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_rotate_b(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
 	return (rb);
 }
 
-static t_operations	ft_rotate_rr(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_rotate_rr(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
 	return (rr);
 }
 
-static t_operations	ft_reverse_rotate_a(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_reverse_rotate_a(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
 	return (rra);
 }
 
-static t_operations	ft_reverse_rotate_b(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_reverse_rotate_b(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
 	return (rrb);
 }
-static t_operations	ft_reverse_rotate_rrr(t_stack *stack_a, t_stack *stack_b)
+static t_operations	ft_test_reverse_rotate_rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
@@ -87,7 +87,7 @@ TEST(push_swap, itShouldExecuteSwapOperationOnStackA) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, &stack_a, NULL, ft_swap_a);
+	ft_exec_operation(&state, &stack_a, NULL, ft_test_swap_a);
 
 	ASSERT_EQ(1, state.count_ops[sa]);
 	ASSERT_EQ(1, state.total_ops);
@@ -104,7 +104,7 @@ TEST(push_swap, itShouldExecuteSwapOperationOnStackB) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, NULL, &stack_b, ft_swap_b);
+	ft_exec_operation(&state, NULL, &stack_b, ft_test_swap_b);
 	
 	ASSERT_EQ(1, state.count_ops[sb]);
 	ASSERT_EQ(1, state.total_ops);
@@ -121,7 +121,7 @@ TEST(push_swap, itShouldExecuteSwapOperationOnBothStacks) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, &stack_a, &stack_b, ft_swap_ss);
+	ft_exec_operation(&state, &stack_a, &stack_b, ft_test_swap_ss);
 	
 	ASSERT_EQ(1, state.count_ops[ss]);
 	ASSERT_EQ(1, state.total_ops);
@@ -138,7 +138,7 @@ TEST(push_swap, itShouldExecutePushOperationOnStackA) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, &stack_a, &stack_b, ft_push_a);
+	ft_exec_operation(&state, &stack_a, &stack_b, ft_test_push_a);
 	
 	ASSERT_EQ(1, state.count_ops[pa]);
 	ASSERT_EQ(1, state.total_ops);
@@ -155,7 +155,7 @@ TEST(push_swap, itShouldExecutePushOperationOnStackB) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, &stack_a, &stack_b, ft_push_b);
+	ft_exec_operation(&state, &stack_a, &stack_b, ft_test_push_b);
 	
 	ASSERT_EQ(1, state.count_ops[pb]);
 	ASSERT_EQ(1, state.total_ops);
@@ -172,7 +172,7 @@ TEST(push_swap, itShouldExecuteRotateOperationOnStackA) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, &stack_a, NULL, ft_rotate_a);
+	ft_exec_operation(&state, &stack_a, NULL, ft_test_rotate_a);
 	
 	ASSERT_EQ(1, state.count_ops[ra]);
 	ASSERT_EQ(1, state.total_ops);
@@ -189,7 +189,7 @@ TEST(push_swap, itShouldExecuteRotateOperationOnStackB) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, &stack_a, NULL, ft_rotate_b);
+	ft_exec_operation(&state, &stack_a, NULL, ft_test_rotate_b);
 	
 	ASSERT_EQ(1, state.count_ops[rb]);
 	ASSERT_EQ(1, state.total_ops);
@@ -206,7 +206,7 @@ TEST(push_swap, itShouldExecuteRotateOperationOnBothStacks) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, &stack_a, NULL, ft_rotate_rr);
+	ft_exec_operation(&state, &stack_a, NULL, ft_test_rotate_rr);
 	
 	ASSERT_EQ(1, state.count_ops[rr]);
 	ASSERT_EQ(1, state.total_ops);
@@ -223,7 +223,7 @@ TEST(push_swap, itShouldExecuteReverseRotateOperationOnStackA) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, &stack_a, NULL, ft_reverse_rotate_a);
+	ft_exec_operation(&state, &stack_a, NULL, ft_test_reverse_rotate_a);
 	
 	ASSERT_EQ(1, state.count_ops[rra]);
 	ASSERT_EQ(1, state.total_ops);
@@ -240,7 +240,7 @@ TEST(push_swap, itShouldExecuteReverseRotateOperationOnStackB) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, &stack_a, NULL, ft_reverse_rotate_b);
+	ft_exec_operation(&state, &stack_a, NULL, ft_test_reverse_rotate_b);
 	
 	ASSERT_EQ(1, state.count_ops[rrb]);
 	ASSERT_EQ(1, state.total_ops);
@@ -257,7 +257,7 @@ TEST(push_swap, itShouldExecuteReverseRotateOperationOnBothStacks) {
 	state.total_ops = 0;
 	state.ops = NULL;
 
-	ft_exec_operation(&state, &stack_a, NULL, ft_reverse_rotate_rrr);
+	ft_exec_operation(&state, &stack_a, NULL, ft_test_reverse_rotate_rrr);
 	
 	ASSERT_EQ(1, state.count_ops[rrr]);
 	ASSERT_EQ(1, state.total_ops);
@@ -272,8 +272,8 @@ TEST(push_swap, itShouldExecuteSwapAndRotateOnStackA) {
 	t_stack	stack_a;
 	bzero(&state, sizeof(t_state));
 
-	ft_exec_operation(&state, &stack_a, NULL, ft_swap_a);
-	ft_exec_operation(&state, &stack_a, NULL, ft_rotate_a);
+	ft_exec_operation(&state, &stack_a, NULL, ft_test_swap_a);
+	ft_exec_operation(&state, &stack_a, NULL, ft_test_rotate_a);
 	
 	ASSERT_EQ(1, state.count_ops[sa]);
 	ASSERT_EQ(1, state.count_ops[ra]);
@@ -290,7 +290,7 @@ TEST(push_swap, itShouldReturnTrueOnOperationSuccess) {
 	t_stack	stack_a;
 	bzero(&state, sizeof(t_state));
 
-	t_bool result = ft_exec_operation(&state, &stack_a, NULL, ft_swap_a);
+	t_bool result = ft_exec_operation(&state, &stack_a, NULL, ft_test_swap_a);
 	
 	ASSERT_TRUE(result);
 
