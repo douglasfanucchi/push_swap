@@ -4,6 +4,15 @@ extern "C" {
     #include "push_swap.h"
 }
 
+TEST(ft_swap, itShouldDoNothingWhenPerformSwapAOnEmptyStack) {
+    t_stack a;
+    ft_stack_init(&a);
+
+    t_operations operation = ft_swap_a(&a, NULL);
+
+    ASSERT_EQ(sa, operation);
+}
+
 TEST(ft_swap, itShouldSwapElementFromStackA) {
     t_stack a;
     ft_stack_init(&a);
