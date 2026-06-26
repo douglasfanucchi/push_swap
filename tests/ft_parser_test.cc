@@ -88,3 +88,26 @@ TEST(ft_parser, itShouldCreateAStackWithNormalizedNumbersInput) {
 
 	ft_stack_clear(&stack);
 }
+
+TEST(ft_parser, itShouldCreateAStackWithNormalizedNumbersWhenInputHasFlagParameters) {
+	t_stack	stack;
+	const char *argv[] = {
+		"push_swap",
+		"--adaptative",
+		"1239812",
+		"-129312",
+		"3",
+		NULL
+	};
+
+	stack = ft_parse_numbers(argv + 1);
+
+	ASSERT_EQ(2, ft_stack_peek(&stack));
+	ft_stack_rotate(&stack);
+	ASSERT_EQ(0, ft_stack_peek(&stack));
+	ft_stack_rotate(&stack);
+	ASSERT_EQ(1, ft_stack_peek(&stack));
+
+	ft_stack_clear(&stack);
+}
+
