@@ -23,3 +23,17 @@ TEST(ft_parser, itShouldNormalizeAnIntegerArray) {
 	free(normalized.elements);
 	free(arr.elements);
 }
+
+TEST(ft_parser, itShouldDefineStrategyAsAdaptativeAndBenchAsFalseWhenNotSpecifyingAnything) {
+	t_program program;
+	const char *argv[] = {
+		"push_swap",
+		"1",
+		NULL
+	};
+
+	ft_parse_flags(&program, argv + 1);
+
+	ASSERT_EQ(adaptative, program.strategy);
+	ASSERT_FALSE(program.bench);
+}
