@@ -39,3 +39,31 @@ TEST(ft_reverse_rotate, itShouldReverseRotateStackB) {
     ASSERT_EQ(42, ft_stack_peek(&b));
     ft_stack_pop(&b);
 }
+
+TEST(ft_reverse_rotate, itShouldReverseRotateStackAAndStackB) {
+    t_stack a, b;
+    ft_stack_init(&a);
+    ft_stack_push(&a, 41);
+    ft_stack_push(&a, 42);
+    ft_stack_push(&a, 43);
+    ft_stack_init(&b);
+    ft_stack_push(&b, 41);
+    ft_stack_push(&b, 42);
+    ft_stack_push(&b, 43);
+
+    t_operations operation = ft_reverse_rotate_rrr(&a, &b);
+
+    ASSERT_EQ(rrr, operation);
+    ASSERT_EQ(41, ft_stack_peek(&a));
+    ft_stack_pop(&a);
+    ASSERT_EQ(43, ft_stack_peek(&a));
+    ft_stack_pop(&a);
+    ASSERT_EQ(42, ft_stack_peek(&a));
+    ft_stack_pop(&a);
+    ASSERT_EQ(41, ft_stack_peek(&b));
+    ft_stack_pop(&b);
+    ASSERT_EQ(43, ft_stack_peek(&b));
+    ft_stack_pop(&b);
+    ASSERT_EQ(42, ft_stack_peek(&b));
+    ft_stack_pop(&b);
+}
