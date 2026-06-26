@@ -8,3 +8,4 @@
 #include "ft_parser_utils_test.cc"
 #include "ft_quicksort_test.cc"
 #include "ft_input_validator_test.cc"
+#include "push_swap_operations_test.cc"
