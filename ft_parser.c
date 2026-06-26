@@ -40,3 +40,14 @@ t_arr	ft_normalize_int_arr(t_arr *arr)
 	free(pairs.elements);
 	return (result);
 }
+
+void	ft_parse_flags(t_program *program, const char **input)
+{
+	program->bench = FALSE;
+	program->strategy = adaptative;
+	while (*input && ft_is_flag(*input))
+	{
+		ft_program_flag_update(*input, program);
+		input++;
+	}
+}
