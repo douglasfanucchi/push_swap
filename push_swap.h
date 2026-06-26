@@ -105,5 +105,6 @@ t_bool		ft_input_validator(const char **input);
 t_operations	ft_swap_a(t_stack *a, t_stack *b);
 t_operations	ft_swap_b(t_stack *a, t_stack *b);
 t_operations	ft_swap_ss(t_stack *a, t_stack *b);
+t_operations	ft_push_a(t_stack *a, t_stack *b);
 
 #endif

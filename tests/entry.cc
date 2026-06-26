@@ -9,3 +9,4 @@
 #include "ft_quicksort_test.cc"
 #include "ft_input_validator_test.cc"
 #include "ft_swap_test.cc"
+#include "ft_push_test.cc"
