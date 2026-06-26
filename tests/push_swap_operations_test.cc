@@ -17,3 +17,18 @@ TEST(push_swap_operations, itShouldSwapElementFromStackA) {
     ASSERT_EQ(43, ft_stack_peek(&a));
     ft_stack_pop(&a);
 }
+
+TEST(push_swap_operations, itShouldSwapElementFromStackB) {
+    t_stack b;
+    ft_stack_init(&b);
+    ft_stack_push(&b, 42);
+    ft_stack_push(&b, 43);
+
+    t_operations operation = ft_swap_b(NULL, &b);
+
+    ASSERT_EQ(sb, operation);
+    ASSERT_EQ(42, ft_stack_peek(&b));
+    ft_stack_pop(&b);
+    ASSERT_EQ(43, ft_stack_peek(&b));
+    ft_stack_pop(&b);
+}
