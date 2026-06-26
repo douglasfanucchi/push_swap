@@ -74,3 +74,18 @@ TEST(ft_input_validator, itShouldReturnTrueWhenInputHasValidFlagsAndValidNumbers
 
     ASSERT_TRUE(result);
 }
+
+TEST(ft_input_validator, itShouldReturnFalseWhenInputHasInvalidFlags) {
+    const char *argv[] = {
+        "push_swap",
+        "--any_flag",
+        "1",
+        "3 100 -10",
+        "-2147483648",
+        NULL
+    };
+
+    t_bool result = ft_input_validator(argv + 1);
+
+    ASSERT_FALSE(result);
+}
