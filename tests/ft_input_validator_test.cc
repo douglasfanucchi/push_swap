@@ -89,3 +89,15 @@ TEST(ft_input_validator, itShouldReturnFalseWhenInputHasInvalidFlags) {
 
     ASSERT_FALSE(result);
 }
+
+TEST(ft_input_validator, itShouldReturnFalseWhenInputHasNoFlagsOrNumbers) {
+    const char *argv[] = {
+        "push_swap",
+        "hello world",
+        NULL
+    };
+
+    t_bool result = ft_input_validator(argv + 1);
+
+    ASSERT_FALSE(result);
+}
