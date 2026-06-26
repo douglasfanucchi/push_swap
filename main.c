@@ -45,6 +45,9 @@ int	main(int argc, const char **argv)
 	program.disorder = ft_compute_disorder(argv + 1);
 	ft_parse_flags(&program, argv + 1);
 	a = ft_parse_numbers(argv + 1);
+	// t_state	state = ft_bubble_sort(&a, &b);
+	// ft_state_print(&state);
+	// ft_state_clear(&state);
 	ft_stack_init(&b);
 	ft_stack_clear(&a);
 }
