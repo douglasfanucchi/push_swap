@@ -45,3 +45,17 @@ TEST(ft_input_validator, itShouldReturnFalseWhenInputHasNumbersOutOfRange) {
 
     ASSERT_FALSE(result);
 }
+
+TEST(ft_input_validator, itShouldReturnFalseWhenInputHasNonNumericValue) {
+    const char *argv[] = {
+        "push_swap",
+        "1",
+        "3 100 -10",
+        "-2147483648 hello",
+        NULL
+    };
+
+    t_bool result = ft_input_validator(argv + 1);
+
+    ASSERT_FALSE(result);
+}
