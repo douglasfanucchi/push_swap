@@ -33,3 +33,10 @@ t_operations	ft_swap_b(t_stack *a, t_stack *b)
 	ft_swap_operation(b);
 	return (sb);
 }
+
+t_operations	ft_swap_ss(t_stack *a, t_stack *b)
+{
+	ft_swap_a(a, NULL);
+	ft_swap_b(NULL, b);
+	return (ss);
+}
