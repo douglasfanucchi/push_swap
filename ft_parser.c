@@ -51,3 +51,16 @@ void	ft_parse_flags(t_program *program, const char **input)
 		input++;
 	}
 }
+
+t_stack	ft_parse_numbers(const char **input)
+{
+	t_stack	stack;
+	t_arr	numbers;
+
+	while (*input && ft_is_flag(*input))
+		input++;
+	numbers = ft_convert_numbers_input_to_int_array(input);
+	stack = ft_int_arr_to_normalized_stack(&numbers);
+	free(numbers.elements);
+	return (stack);
+}
