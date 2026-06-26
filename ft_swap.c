@@ -5,15 +5,10 @@ static	void ft_swap_operation(t_stack *stack)
 	int	first;
 	int	second;
 
-	if (!stack->size)
+	if (stack->size < 2)
 		return ;
 	first = ft_stack_peek(stack);
 	ft_stack_pop(stack);
-	if (!stack->size)
-	{
-		ft_stack_push(stack, first);
-		return ;
-	}
 	second = ft_stack_peek(stack);
 	ft_stack_pop(stack);
 	ft_stack_push(stack, first);
