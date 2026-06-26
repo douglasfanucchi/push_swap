@@ -56,7 +56,7 @@ typedef enum e_strategy {
 
 typedef struct s_program {
 	t_bool		bench;
-	t_state		*state;
+	t_state		state;
 	double		disorder;
 	t_strategy	strategy;
 } t_program;
