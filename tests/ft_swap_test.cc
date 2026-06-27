@@ -13,6 +13,18 @@ TEST(ft_swap, itShouldDoNothingWhenPerformSwapAOnEmptyStack) {
     ASSERT_EQ(sa, operation);
 }
 
+TEST(ft_swap, itShouldDoNothingWhenPerformSwapAOnStackWithSingleElement) {
+    t_stack a;
+    ft_stack_init(&a);
+    ft_stack_push(&a, 42);
+
+    t_operations operation = ft_swap_a(&a, NULL);
+
+    ASSERT_EQ(sa, operation);
+    ASSERT_EQ(42, ft_stack_peek(&a));
+    ft_stack_pop(&a);
+}
+
 TEST(ft_swap, itShouldSwapElementFromStackA) {
     t_stack a;
     ft_stack_init(&a);
