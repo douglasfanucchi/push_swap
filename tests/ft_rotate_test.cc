@@ -4,6 +4,15 @@ extern "C" {
     #include "push_swap.h"
 }
 
+TEST(ft_rotate, itShouldPerformRotateAOnEmptyStack) {
+    t_stack a;
+    ft_stack_init(&a);
+
+    t_operations operation = ft_rotate_a(&a, NULL);
+
+    ASSERT_EQ(ra, operation);
+}
+
 TEST(ft_rotate, itShouldRotateStackA) {
     t_stack a;
     ft_stack_init(&a);
