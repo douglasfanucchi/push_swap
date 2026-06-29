@@ -14,8 +14,9 @@
 
 void	ft_stack_init(t_stack *stack)
 {
-	stack->head = NULL;
+	stack->arr = NULL;
 	stack->size = 0;
+	stack->arr_size = 0;
 }
 
 t_stack	ft_int_arr_to_normalized_stack(t_arr *arr)
@@ -39,5 +40,8 @@ t_stack	ft_int_arr_to_normalized_stack(t_arr *arr)
 
 void	ft_stack_clear(t_stack *stack)
 {
-	ft_dlstclear(&stack->head);
+	free(stack->arr);
+	stack->arr = NULL;
+	stack->arr_size = 0;
+	stack->size = 0;
 }

@@ -11,40 +11,67 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <string.h>
 
 int		ft_stack_push(t_stack *stack, int n)
 {
-	t_dlist	*tmp;
+	int	*tmp;
 
-	tmp = stack->head;
-	ft_dlstadd_front(&stack->head, ft_dlstnew(n));
-	if (tmp == stack->head)
+	if (!stack->arr)
+	{
+		stack->arr = malloc(sizeof(int));
+		stack->arr_size = 1;
+		stack->size = 1;
+		stack->arr[0] = n;
 		return (stack->size);
+	}
+	if (stack->size == stack->arr_size) {
+		tmp = malloc(sizeof(int) * 2 * stack->size);
+		ft_memmove(tmp + 1, stack->arr, sizeof(int) * stack->size);
+		tmp[0] = n;
+		stack->size++;
+		stack->arr_size *= 2;
+		free(stack->arr);
+		stack->arr = tmp;
+		return (stack->size);
+	}
+	ft_memmove(stack->arr + 1, stack->arr, sizeof(int) * stack->size);
+	stack->arr[0] = n;
 	stack->size++;
 	return (stack->size);
 }
 
 int		ft_stack_pop(t_stack *stack)
 {
-	t_dlist	*node;
-
-	node = ft_dlst_pop(&stack->head);
-	free(node);
 	stack->size--;
+	if (!stack->size)
+	{
+		ft_stack_clear(stack);
+		return (0);
+	}
+	ft_memmove(stack->arr, stack->arr + 1, sizeof(int) * stack->size);
 	return (stack->size);
 }
 
 int	ft_stack_peek(const t_stack *stack)
 {
-	return (stack->head->n);
+	return (stack->arr[0]);
 }
 
 void	ft_stack_rotate(t_stack *stack)
 {
-	stack->head = stack->head->next;
+	int	top;
+
+	top = ft_stack_peek(stack);
+	ft_memmove(stack->arr, stack->arr + 1, (stack->size - 1) * sizeof(int));
+	stack->arr[stack->size - 1] = top;
 }
 
 void	ft_stack_reverse_rotate(t_stack *stack)
 {
-	stack->head = stack->head->prev;
+	int	bottom;
+
+	bottom = stack->arr[stack->size - 1];
+	ft_memmove(stack->arr + 1, stack->arr, sizeof(int) * (stack->size - 1));
+	stack->arr[0] = bottom;
 }

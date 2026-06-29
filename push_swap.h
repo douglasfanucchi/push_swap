@@ -22,7 +22,8 @@ typedef struct s_dlist {
 
 typedef struct s_stack {
 	int		size;
-	t_dlist	*head;
+	int		*arr;
+	int		arr_size;
 }	t_stack;
 
 typedef unsigned char t_bool;
