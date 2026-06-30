@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 17:15:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/30 17:10:08 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/30 17:23:05 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,23 @@ int	ft_stack_find(const t_stack *stack, int n, t_bool (*f)(int, int))
 	if (i == stack->size)
 		return (-1);
 	return (i);
+}
+
+t_stack	ft_stack_copy(const t_stack *stack)
+{
+	t_dlist	*node;
+	t_stack	copy;
+	int		i;
+
+	ft_stack_init(&copy);
+	node = stack->head;
+	i = 0;
+	while (i < stack->size)
+	{
+		ft_stack_push(&copy, node->n);
+		ft_stack_rotate(&copy);
+		node = node->next;
+		i++;
+	}
+	return (copy);
 }
