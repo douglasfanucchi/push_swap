@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_state.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gucoelho <gucoelho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 21:29:42 by gucoelho          #+#    #+#             */
-/*   Updated: 2026/06/29 21:31:12 by gucoelho         ###   ########.fr       */
+/*   Updated: 2026/06/30 17:56:52 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ t_bool	ft_state_update(t_state *state, t_operations op)
 void	ft_state_clear(t_state *state)
 {
 	ft_lstclear(&state->ops, free);
+	free(state->complexity);
 	ft_state_init(state);
 }
