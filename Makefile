@@ -1,7 +1,8 @@
 NAME=push_swap
 FILES=main ft_dlist ft_stack ft_stack_operations push_swap push_swap_utils\
 	ft_state ft_parser ft_quicksort ft_parser_utils ft_input_validator\
-	ft_swap ft_push ft_rotate ft_reverse_rotate ft_algorithm_n2
+	ft_swap ft_push ft_rotate ft_reverse_rotate ft_algorithm_n2\
+	ft_execute_algorithm
 SRC=$(addsuffix .c,$(FILES))
 OBJECTS=$(addsuffix .o,$(FILES))
 TEST_FILES:=$(filter-out main, $(FILES))
