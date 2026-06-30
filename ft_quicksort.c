@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 14:21:04 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/25 15:51:52 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/29 21:27:17 by gucoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ t_bool	ft_less_than_pair(void *elements, int i, int j)
 	return (pairs[i][1] < pairs[j][1]);
 }
 
-
 void	ft_swap_pair(void *elements, int i, int j)
 {
 	int	**pairs;
@@ -55,7 +54,8 @@ void	ft_swap_pair(void *elements, int i, int j)
 	pairs[j] = tmp_pair;
 }
 
-void	ft_quicksort(t_arr arr, size_t bytes, t_bool (*less_than)(void *, int, int),
+void	ft_quicksort(t_arr arr, size_t bytes,
+		t_bool (*less_than)(void *, int, int),
 	void (*swap)(void *, int, int))
 {
 	t_arr	arr_left;
