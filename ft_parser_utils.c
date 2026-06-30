@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 16:55:16 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/25 16:55:30 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/29 21:25:51 by gucoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ t_bool	ft_is_valid_flag(const char *str)
 {
 	char	**options;
 
-	options = (char *[]){
+	options = (char *[])
+	{
 		"--adaptative",
 		"--simple",
 		"--medium",
@@ -97,10 +98,10 @@ void	ft_program_flag_update(const char *input, t_program *program)
 		program->strategy = adaptative;
 	else if (ft_strcmp(input, "--simple") == 0)
 		program->strategy = simple;
-	else if(ft_strcmp(input, "--medium") == 0)
+	else if (ft_strcmp(input, "--medium") == 0)
 		program->strategy = medium;
-	else if(ft_strcmp(input, "--complex") == 0)
+	else if (ft_strcmp(input, "--complex") == 0)
 		program->strategy = complex;
-	else if(ft_strcmp(input, "--bench") == 0)
+	else if (ft_strcmp(input, "--bench") == 0)
 		program->bench = TRUE;
 }
