@@ -48,3 +48,20 @@ TEST(ft_stack, itShouldConvertAnArrayOfIntegerIntoANormalizedStack) {
 	ft_dlstclear(&stack.head);
 	free(arr.elements);
 }
+
+TEST(ft_stack, itShouldReturnANumberGivenItsPosition) {
+	t_stack	stack;
+	t_dlist node_1, node_2;
+	stack.size = 2;
+	stack.head = &node_1;
+	node_1.n = 42;
+	node_1.next = &node_2;
+	node_1.prev = &node_2;
+	node_2.prev = &node_1;
+	node_2.next = &node_1;
+	node_2.n = 43;
+
+	int result = ft_stack_get_nth_number(&stack, 2);
+
+	ASSERT_EQ(43, result);
+}
