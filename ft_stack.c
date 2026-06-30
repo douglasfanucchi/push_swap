@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 17:15:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/25 18:56:06 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/30 14:57:35 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,19 @@ t_stack	ft_int_arr_to_normalized_stack(t_arr *arr)
 void	ft_stack_clear(t_stack *stack)
 {
 	ft_dlstclear(&stack->head);
+}
+
+int	ft_stack_get_nth_number(const t_stack *stack, int n)
+{
+	t_dlist	*node;
+	int		i;
+
+	i = 0;
+	node = stack->head;
+	while (i < n - 1)
+	{
+		node = node->next;
+		i++;
+	}
+	return (node->n);
 }
