@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gucoelho <gucoelho@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/29 21:26:14 by gucoelho          #+#    #+#             */
+/*   Updated: 2026/06/29 21:26:25 by gucoelho         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_operations	ft_push_a(t_stack *a, t_stack *b)
 {
 	int	n;
+
 	if (!b->size)
 		return (pa);
 	n = ft_stack_peek(b);
@@ -14,6 +27,7 @@ t_operations	ft_push_a(t_stack *a, t_stack *b)
 t_operations	ft_push_b(t_stack *a, t_stack *b)
 {
 	int	n;
+
 	if (!a->size)
 		return (pb);
 	n = ft_stack_peek(a);
