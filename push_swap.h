@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/30 17:16:21 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/30 17:45:10 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_state {
 	int		count_ops[11];
 	int		total_ops;
 	t_list	*ops;
+	char	*complexity;
 }	t_state;
 
 typedef enum e_strategy {
@@ -122,5 +123,7 @@ int				ft_stack_get_nth_number(const t_stack *stack, int n);
 int				ft_stack_find(const t_stack *stack, int n,
 					t_bool (*f)(int, int));
 t_stack			ft_stack_copy(const t_stack *stack);
+t_state			ft_execute_algorithm(t_strategy strategy, double disorder,
+					const t_stack *a);
 
 #endif
