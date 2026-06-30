@@ -12,7 +12,10 @@ CFLAGS=-Wall -Werror -Wextra
 LIBS=-L libft
 LIBFT=libft/libft.a
 INCLUDES=-I libft/includes
-SANITIZE:=-fsanitize=address -g -O1 -fno-omit-frame-pointer -fsanitize=undefined
+tests: SANITIZE:=-fsanitize=address -g -O1 -fno-omit-frame-pointer -fsanitize=undefined
+tests_valgrind: SANITIZE:=-g -O1
+tests: VALGRIND_FLAG:=OFF
+tests_valgrind: VALGRIND_FLAG:=ON
 
 all: $(NAME)
 
@@ -35,14 +38,24 @@ fclean: clean
 
 re: fclean all
 
-tests.a: $(filter-out main.o,$(OBJECTS))
-	ar rcs tests.a $^
+norminette:
+	norminette $(filter-out main.c, $(SRC)) push_swap.h
 
-tests: $(TEST_FILES) tests.a
+test_executable: fclean $(TEST_FILES) tests.a $(LIBFT)
 	@cd tests && \
-	cmake -S . -B build &&\
-	cmake --build build &&\
-	cd build &&\
+	cmake -S . -B build -DVALGRIND_FLAG=$(VALGRIND_FLAG) &&\
+	cmake --build build
+
+tests.a: norminette $(filter-out main.o, $(OBJECTS))
+	ar rcs tests.a $(filter-out main.o, $(OBJECTS))
+
+tests_valgrind: test_executable
+	cd tests/build &&\
+	ctest --output-on-failure -T memcheck
+	@rm -rf tests.a
+
+tests: test_executable
+	cd tests/build &&\
 	ctest --output-on-failure
 	@rm -rf tests.a
 
