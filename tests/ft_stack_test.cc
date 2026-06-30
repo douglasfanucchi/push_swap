@@ -82,3 +82,24 @@ TEST(ft_stack, itShouldreturnNegativeOneWhenNoNumberSatisfiesACallback) {
 
 	ASSERT_EQ(-1, result);
 }
+
+TEST(ft_stack, itShouldCopyAnExistingStack) {
+	t_stack	stack;
+	t_dlist node_1, node_2;
+	stack.size = 2;
+	stack.head = &node_1;
+	node_1.n = 43;
+	node_1.next = &node_2;
+	node_1.prev = &node_2;
+	node_2.prev = &node_1;
+	node_2.next = &node_1;
+	node_2.n = 42;
+
+	t_stack result = ft_stack_copy(&stack);
+
+	ASSERT_EQ(2, result.size);
+	ASSERT_EQ(43, result.head->n);
+	ASSERT_EQ(42, result.head->next->n);
+
+	ft_stack_clear(&result);
+}
