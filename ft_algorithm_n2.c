@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_algorithm_n2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gucoelho <gucoelho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 21:21:15 by gucoelho          #+#    #+#             */
-/*   Updated: 2026/06/29 21:24:16 by gucoelho         ###   ########.fr       */
+/*   Updated: 2026/06/30 16:46:04 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_state	ft_bubble_sort(t_stack *a, t_stack *b)
 {
-	t_state	state;
-	t_bool	sorted;
+	static t_state	state;
+	t_bool			sorted;
 
 	while (TRUE)
 	{
