@@ -25,6 +25,7 @@ TEST(ft_state, itShouldInitializeState) {
     ASSERT_EQ(0, state.count_ops[rra]);
     ASSERT_EQ(0, state.count_ops[rrb]);
     ASSERT_EQ(0, state.count_ops[rrr]);
+    ASSERT_EQ(NULL, state.complexity);
 }
 
 TEST(ft_state, itShouldPrintOperations) {
@@ -309,10 +310,12 @@ TEST(ft_state, itShouldClearStateInstance) {
     ft_lstadd_back(&state.ops, ft_lstnew(ft_strdup("sa")));
     state.count_ops[sa] = 1;
     state.total_ops = 1;
+    state.complexity = ft_strdup("O(nlogn)");
 
     ft_state_clear(&state);
 
     ASSERT_EQ(nullptr, state.ops);
+    ASSERT_EQ(nullptr, state.complexity);
     ASSERT_EQ(0, state.count_ops[sa]);
     ASSERT_EQ(0, state.total_ops);
 }
