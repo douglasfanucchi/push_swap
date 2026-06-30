@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 19:06:05 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/25 18:49:30 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/30 17:10:17 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,25 @@ void	ft_parse_flags(t_program *program, const char **input)
 		ft_program_flag_update(*input, program);
 		input++;
 	}
+}
+
+t_stack	ft_int_arr_to_normalized_stack(t_arr *arr)
+{
+	t_arr	normalized;
+	int		i;
+	t_stack	stack;
+
+	i = 0;
+	normalized = ft_normalize_int_arr(arr);
+	ft_stack_init(&stack);
+	while (i < normalized.len)
+	{
+		ft_stack_push(&stack, ((int *)normalized.elements)[i]);
+		ft_stack_rotate(&stack);
+		i++;
+	}
+	free(normalized.elements);
+	return (stack);
 }
 
 t_stack	ft_parse_numbers(const char **input)
