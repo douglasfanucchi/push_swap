@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gucoelho <gucoelho@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/29 21:31:36 by gucoelho          #+#    #+#             */
+/*   Updated: 2026/06/29 21:39:55 by gucoelho         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static	void ft_swap_operation(t_stack *stack)
+static void	ft_swap_operation(t_stack *stack)
 {
 	int	first;
 	int	second;
@@ -18,7 +30,7 @@ static	void ft_swap_operation(t_stack *stack)
 t_operations	ft_swap_a(t_stack *a, t_stack *b)
 {
 	(void)b;
-	ft_swap_operation(a);	
+	ft_swap_operation(a);
 	return (sa);
 }
 
