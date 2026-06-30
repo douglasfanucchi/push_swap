@@ -5,6 +5,7 @@ project(push_swap_tests)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+include(CTest)
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -14,13 +15,19 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+if (VALGRIND_FLAG STREQUAL "ON")
+  set(SANITIZE_FLAGS -g -O1)
+else()
+  set(SANITIZE_FLAGS -fsanitize=address -g -O1 -fno-omit-frame-pointer -fsanitize=undefined)
+endif()
+
 enable_testing()
 
 add_executable(
   tests
   entry.cc
 )
-target_compile_options(tests PRIVATE -fsanitize=address -g -O1 -fno-omit-frame-pointer -fsanitize=undefined)
+target_compile_options(tests PRIVATE ${SANITIZE_FLAGS})
 target_link_libraries(
   tests
   GTest::gtest_main
@@ -39,7 +46,7 @@ target_include_directories(
   ${CMAKE_SOURCE_DIR}/../libft/includes
   ${CMAKE_SOURCE_DIR}/..
 )
-target_link_options(tests PRIVATE -fsanitize=address -g -O1 -fno-omit-frame-pointer -fsanitize=undefined)
+target_link_options(tests PRIVATE ${SANITIZE_FLAGS})
 
 include(GoogleTest)
 gtest_discover_tests(tests)
