@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gucoelho <gucoelho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 21:31:59 by gucoelho          #+#    #+#             */
-/*   Updated: 2026/06/29 21:32:09 by gucoelho         ###   ########.fr       */
+/*   Updated: 2026/06/30 14:23:31 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ int	main(int argc, const char **argv)
 	program.disorder = ft_compute_disorder(argv + 1);
 	ft_parse_flags(&program, argv + 1);
 	a = ft_parse_numbers(argv + 1);
+	ft_stack_init(&b);
 	// t_state	state = ft_bubble_sort(&a, &b);
 	// ft_state_print(&state);
 	// ft_state_clear(&state);
-	ft_stack_init(&b);
 	ft_stack_clear(&a);
 }
