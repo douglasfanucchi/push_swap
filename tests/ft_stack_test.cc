@@ -27,28 +27,6 @@ TEST(ft_stack, itShouldClearTheStack) {
 	ASSERT_EQ(nullptr, stack.head);
 }
 
-TEST(ft_stack, itShouldConvertAnArrayOfIntegerIntoANormalizedStack) {
-	t_arr arr;
-	arr.len = 7;
-	arr.elements = malloc(sizeof(int) * 7);
-	ft_memmove(arr.elements, (int[]){1, 2, 3, 42, -100, 2147483647, -2147483648}, 7 * sizeof(int));
-
-	t_stack stack = ft_int_arr_to_normalized_stack(&arr);
-
-	ASSERT_NE(nullptr, stack.head);
-	ASSERT_EQ(7, stack.size);
-	ASSERT_EQ(2, stack.head->n);
-	ASSERT_EQ(3, stack.head->next->n);
-	ASSERT_EQ(4, stack.head->next->next->n);
-	ASSERT_EQ(5, stack.head->next->next->next->n);
-	ASSERT_EQ(1, stack.head->next->next->next->next->n);
-	ASSERT_EQ(6, stack.head->next->next->next->next->next->n);
-	ASSERT_EQ(0, stack.head->next->next->next->next->next->next->n);
-
-	ft_dlstclear(&stack.head);
-	free(arr.elements);
-}
-
 TEST(ft_stack, itShouldReturnANumberGivenItsPosition) {
 	t_stack	stack;
 	t_dlist node_1, node_2;

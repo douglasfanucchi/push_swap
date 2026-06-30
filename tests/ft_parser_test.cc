@@ -111,3 +111,24 @@ TEST(ft_parser, itShouldCreateAStackWithNormalizedNumbersWhenInputHasFlagParamet
 	ft_stack_clear(&stack);
 }
 
+TEST(ft_parser, itShouldConvertAnArrayOfIntegerIntoANormalizedStack) {
+	t_arr arr;
+	arr.len = 7;
+	arr.elements = malloc(sizeof(int) * 7);
+	ft_memmove(arr.elements, (int[]){1, 2, 3, 42, -100, 2147483647, -2147483648}, 7 * sizeof(int));
+
+	t_stack stack = ft_int_arr_to_normalized_stack(&arr);
+
+	ASSERT_NE(nullptr, stack.head);
+	ASSERT_EQ(7, stack.size);
+	ASSERT_EQ(2, ft_stack_get_nth_number(&stack, 1));
+	ASSERT_EQ(3, ft_stack_get_nth_number(&stack, 2));
+	ASSERT_EQ(4, ft_stack_get_nth_number(&stack, 3));
+	ASSERT_EQ(5, ft_stack_get_nth_number(&stack, 4));
+	ASSERT_EQ(1, ft_stack_get_nth_number(&stack, 5));
+	ASSERT_EQ(6, ft_stack_get_nth_number(&stack, 6));
+	ASSERT_EQ(0, ft_stack_get_nth_number(&stack, 7));
+
+	ft_dlstclear(&stack.head);
+	free(arr.elements);
+}
