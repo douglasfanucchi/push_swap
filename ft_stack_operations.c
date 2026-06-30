@@ -6,13 +6,13 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:03:47 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/18 16:29:12 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/29 21:29:23 by gucoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_stack_push(t_stack *stack, int n)
+int	ft_stack_push(t_stack *stack, int n)
 {
 	t_dlist	*tmp;
 
@@ -24,7 +24,7 @@ int		ft_stack_push(t_stack *stack, int n)
 	return (stack->size);
 }
 
-int		ft_stack_pop(t_stack *stack)
+int	ft_stack_pop(t_stack *stack)
 {
 	t_dlist	*node;
 
