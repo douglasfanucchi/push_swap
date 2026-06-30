@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 15:40:57 by gucoelho          #+#    #+#             */
-/*   Updated: 2026/06/16 21:03:50 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/29 21:41:47 by gucoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-void    ft_swap(int *a, int *b);
+void	ft_swap(int *a, int *b);
 
 #endif
