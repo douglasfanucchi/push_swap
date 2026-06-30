@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 17:15:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/30 14:57:35 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/06/30 17:05:29 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,21 @@ int	ft_stack_get_nth_number(const t_stack *stack, int n)
 		i++;
 	}
 	return (node->n);
+}
+
+int	ft_stack_find(const t_stack *stack, int n, t_bool (*f)(int, int))
+{
+	t_dlist	*node;
+	int		i;
+
+	i = 0;
+	node = stack->head;
+	while (!f(n, node->n) && i < stack->size)
+	{
+		node = node->next;
+		i++;
+	}
+	if (i == stack->size)
+		return (-1);
+	return (i);
 }
