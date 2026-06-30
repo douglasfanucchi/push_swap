@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gucoelho <gucoelho@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/29 21:31:59 by gucoelho          #+#    #+#             */
+/*   Updated: 2026/06/29 21:32:09 by gucoelho         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static	double ft_compute_disorder(const char **input)
+static double	ft_compute_disorder(const char **input)
 {
 	t_arr	arr;
 	int		i[2];
