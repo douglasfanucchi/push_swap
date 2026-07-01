@@ -324,7 +324,7 @@ TEST(push_swap, itShouldPrintProgramState) {
     ft_program_print(&program);
     dup2(stderr, 2);
 
-	char buffer[20000];
+	char buffer[20000] = {0};
 	char	*line;
 	int readed = read(fd[0], buffer, 20000);
 	ASSERT_NE(0, readed);
