@@ -123,7 +123,7 @@ int				ft_stack_get_nth_number(const t_stack *stack, int n);
 int				ft_stack_find(const t_stack *stack, int n,
 					t_bool (*f)(int, int));
 t_stack			ft_stack_copy(const t_stack *stack);
-t_state			ft_execute_algorithm(t_strategy strategy, double disorder,
+t_state			ft_execute_algorithms(t_strategy strategy, double disorder,
 					const t_stack *a);
 
 #endif

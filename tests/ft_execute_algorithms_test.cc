@@ -4,13 +4,13 @@ extern "C" {
 	#include "push_swap.h"
 }
 
-TEST(ft_execute_algorithm, itShouldReturnA_nlogn_AlgorithmWhenDisorderIsOneAndStrategyAdaptative) {
+TEST(ft_execute_algorithms, itShouldReturnA_nlogn_AlgorithmWhenDisorderIsOneAndStrategyAdaptative) {
 	t_stack a;
 	ft_stack_init(&a);
 	ft_stack_push(&a, 0);
 	ft_stack_push(&a, 1);
 
-	t_state result = ft_execute_algorithm(adaptative, 1, &a);
+	t_state result = ft_execute_algorithms(adaptative, 1, &a);
 
 	ASSERT_EQ(2, a.size);
 	ASSERT_EQ(1, ft_stack_get_nth_number(&a, 1));
@@ -23,7 +23,7 @@ TEST(ft_execute_algorithm, itShouldReturnA_nlogn_AlgorithmWhenDisorderIsOneAndSt
 	ft_stack_clear(&a);
 }
 
-TEST(ft_execute_algorithm, itShouldReturnA_nsqrtn_AlgorithmWhenDisorderIsBetween_0_2_And_0_5_StrategyAdaptative) {
+TEST(ft_execute_algorithms, itShouldReturnA_nsqrtn_AlgorithmWhenDisorderIsBetween_0_2_And_0_5_StrategyAdaptative) {
 	t_stack a;
 	ft_stack_init(&a);
 	ft_stack_push(&a, 2);
@@ -32,7 +32,7 @@ TEST(ft_execute_algorithm, itShouldReturnA_nsqrtn_AlgorithmWhenDisorderIsBetween
 	ft_stack_push(&a, 1);
 	ft_stack_push(&a, 0);
 
-	t_state result = ft_execute_algorithm(adaptative, 0.30, &a);
+	t_state result = ft_execute_algorithms(adaptative, 0.30, &a);
 
 	ASSERT_EQ(5, a.size);
 	ASSERT_EQ(0, ft_stack_get_nth_number(&a, 1));
