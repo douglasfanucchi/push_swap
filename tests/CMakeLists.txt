@@ -17,6 +17,7 @@ FetchContent_MakeAvailable(googletest)
 
 if (VALGRIND_FLAG STREQUAL "ON")
   set(SANITIZE_FLAGS -g -O1)
+  set(MEMORYCHECK_COMMAND_OPTIONS "--leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1")
 else()
   set(SANITIZE_FLAGS -fsanitize=address -g -O1 -fno-omit-frame-pointer -fsanitize=undefined)
 endif()
