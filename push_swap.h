@@ -125,5 +125,6 @@ int				ft_stack_find(const t_stack *stack, int n,
 t_stack			ft_stack_copy(const t_stack *stack);
 t_state			ft_execute_algorithms(t_strategy strategy, double disorder,
 					const t_stack *a);
+void			ft_initialize_algorithms(t_list *algorithms[3]);
 
 #endif
