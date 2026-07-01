@@ -122,3 +122,25 @@ TEST(ft_execute_algorithms, itShouldReturnA_nsqrtn_AlgorithmWhenStrategyIsMedium
 	ft_state_clear(&result);
 	ft_stack_clear(&a);
 }
+
+static void	ft_do_nothing_test(void *node)
+{
+	(void)node;
+}
+
+TEST(ft_execute_algorithms, itShouldInitializeListOfAlgorithms) {
+	t_list	*algorithms[3];
+	algorithms[0] = NULL;
+	algorithms[1] = NULL;
+	algorithms[2] = NULL;
+
+	ft_initialize_algorithms(algorithms);
+
+	ASSERT_NE(nullptr, algorithms[simple]);
+	ASSERT_NE(nullptr, algorithms[medium]);
+	ASSERT_NE(nullptr, algorithms[complex]);
+
+	ft_lstclear(&algorithms[simple], ft_do_nothing_test);
+	ft_lstclear(&algorithms[medium], ft_do_nothing_test);
+	ft_lstclear(&algorithms[complex], ft_do_nothing_test);
+}
