@@ -58,6 +58,8 @@ int	main(int argc, const char **argv)
 	a = ft_parse_numbers(argv + 1);
 	program.state = ft_execute_algorithms(program.strategy, program.disorder, &a);
 	ft_state_print(&program.state);
+	if (program.bench)
+		ft_program_print(&program);
 	ft_state_clear(&program.state);
 	ft_stack_clear(&a);
 }
