@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/07/10 15:05:58 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/10 17:21:21 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,11 @@ typedef struct s_substack {
 	int	size;
 }	t_substack;
 
+typedef struct s_move {
+	int	from;
+	int	to;
+}	t_move;
+
 t_dlist			*ft_dlstnew(int n);
 void			ft_dlstadd_front(t_dlist **head, t_dlist *_new);
 void			ft_dlstadd_back(t_dlist **head, t_dlist *_new);
@@ -134,5 +139,9 @@ void			ft_initialize_algorithms(t_list *algorithms[3]);
 void			ft_program_print(const t_program *program);
 int				ft_stack_find_offset(const t_stack *stack,
 					t_substack substack, int n, t_bool (*f)(int, int));
+void			ft_move_ith_to(t_move move, t_state *state, t_stack *stack,
+					t_operations operation);
+int				ft_abs(int n);
+int				ft_min(int a, int b);
 
 #endif
