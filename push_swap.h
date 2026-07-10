@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/30 18:33:49 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:05:58 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,11 @@ typedef struct s_arr {
 	int		len;
 	void	*elements;
 }	t_arr;
+
+typedef struct s_substack {
+	int	start;
+	int	size;
+}	t_substack;
 
 t_dlist			*ft_dlstnew(int n);
 void			ft_dlstadd_front(t_dlist **head, t_dlist *_new);
@@ -127,5 +132,7 @@ t_state			ft_execute_algorithms(t_strategy strategy, double disorder,
 					const t_stack *a);
 void			ft_initialize_algorithms(t_list *algorithms[3]);
 void			ft_program_print(const t_program *program);
+int				ft_stack_find_offset(const t_stack *stack,
+					t_substack substack, int n, t_bool (*f)(int, int));
 
 #endif
