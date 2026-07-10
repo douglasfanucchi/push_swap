@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/07/10 18:30:51 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/10 19:42:25 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +143,6 @@ void			ft_move_ith_to(t_move move, t_state *state, t_stack *stack,
 					t_operations operation);
 int				ft_abs(int n);
 int				ft_min(int a, int b);
+t_bool			ft_is_sorted(const t_stack *stack);
 
 #endif
