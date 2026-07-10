@@ -26,3 +26,26 @@ TEST(ft_move_ith_to, itShouldMoveAnElementThatIsInTheFirstHalfOfTheStackAToTopBy
 	ft_state_clear(&state);
 	ft_stack_clear(&a);
 }
+
+TEST(ft_move_ith_to, itShouldMoveAnElementThatIsInTheSecondHalfOfTheStackAToTheTopByReverseRotate) {
+	t_stack	a;
+	t_state	state;
+	t_move move;
+	move.from = 3;
+	move.to = 0;
+	ft_state_init(&state);
+	ft_stack_init(&a);
+	ft_stack_push(&a, 41);
+	ft_stack_push(&a, 42);
+	ft_stack_push(&a, 43);
+	ft_stack_push(&a, 44);
+
+	ft_move_ith_to(move, &state, &a, ra);
+
+	ASSERT_EQ(1, state.total_ops);
+	ASSERT_STREQ("rra", (char *)state.ops->content);
+	ASSERT_EQ(41, ft_stack_peek(&a));
+
+	ft_state_clear(&state);
+	ft_stack_clear(&a);
+}
