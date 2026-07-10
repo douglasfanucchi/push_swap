@@ -48,7 +48,7 @@ test_executable: fclean $(TEST_FILES) tests.a $(LIBFT)
 	cmake -S . -B build -DVALGRIND_FLAG=$(VALGRIND_FLAG) &&\
 	cmake --build build
 
-tests.a: $(filter-out main.o, $(OBJECTS))
+tests.a: norminette $(filter-out main.o, $(OBJECTS))
 	ar rcs tests.a $(filter-out main.o, $(OBJECTS))
 
 tests_valgrind: test_executable
