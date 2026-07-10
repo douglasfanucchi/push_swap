@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 16:55:16 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/29 21:25:51 by gucoelho         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:30:51 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_bool	ft_is_valid_flag(const char *str)
 
 	options = (char *[])
 	{
-		"--adaptative",
+		"--adaptive",
 		"--simple",
 		"--medium",
 		"--complex",
@@ -94,8 +94,8 @@ t_bool	ft_has_duplicated_numbers(const char **number_sets)
 
 void	ft_program_flag_update(const char *input, t_program *program)
 {
-	if (ft_strcmp(input, "--adaptative") == 0)
-		program->strategy = adaptative;
+	if (ft_strcmp(input, "--adaptive") == 0)
+		program->strategy = adaptive;
 	else if (ft_strcmp(input, "--simple") == 0)
 		program->strategy = simple;
 	else if (ft_strcmp(input, "--medium") == 0)

@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 19:06:05 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/30 17:10:17 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:30:51 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_arr	ft_normalize_int_arr(t_arr *arr)
 void	ft_parse_flags(t_program *program, const char **input)
 {
 	program->bench = FALSE;
-	program->strategy = adaptative;
+	program->strategy = adaptive;
 	while (*input && ft_is_flag(*input))
 	{
 		ft_program_flag_update(*input, program);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_execute_algorithm.c                             :+:      :+:    :+:   */
+/*   ft_execute_algorithms.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 17:31:35 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/30 18:58:35 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:30:51 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ t_state	ft_execute_algorithms(t_strategy strategy, double disorder,
 	t_state	state;
 
 	ft_initialize_algorithms(algorithms);
-	if ((strategy == adaptative && disorder < 0.2) || strategy == simple)
+	if ((strategy == adaptive && disorder < 0.2) || strategy == simple)
 	{
 		state = exec_algorithms(algorithms[simple], a);
 		state.complexity = ft_strdup("O(n²)");
 	}
-	else if ((strategy == adaptative && disorder < 0.5) || strategy == medium)
+	else if ((strategy == adaptive && disorder < 0.5) || strategy == medium)
 	{
 		state = exec_algorithms(algorithms[medium], a);
 		state.complexity = ft_strdup("O(n√n)");

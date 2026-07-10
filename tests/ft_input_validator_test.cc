@@ -63,7 +63,7 @@ TEST(ft_input_validator, itShouldReturnFalseWhenInputHasNonNumericValue) {
 TEST(ft_input_validator, itShouldReturnTrueWhenInputHasValidFlagsAndValidNumbers) {
     const char *argv[] = {
         "push_swap",
-        "--adaptative",
+        "--adaptive",
         "1",
         "3 100 -10",
         "-2147483648",
@@ -79,7 +79,7 @@ TEST(ft_input_validator, itShouldReturnTrueWhenInputHasMoreThanOneValidFlags) {
     const char *argv[] = {
         "push_swap",
         "--bench",
-        "--adaptative",
+        "--adaptive",
         "--simple",
         "--medium",
         "--complex",
@@ -124,7 +124,7 @@ TEST(ft_input_validator, itShouldReturnFalseWhenInputHasNoFlagsOrNumbers) {
 TEST(ft_input_validator, itShouldReturnFalseWhenInputIsJustAFlag) {
     const char *argv[] = {
         "push_swap",
-        "--adaptative",
+        "--adaptive",
         NULL
     };
 

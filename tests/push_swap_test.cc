@@ -316,7 +316,7 @@ TEST(push_swap, itShouldPrintProgramState) {
 	program.state.count_ops[rrb] = 0;
 	program.state.count_ops[rrr] = 0;
 	program.disorder = 0.4;
-	program.strategy = adaptative;
+	program.strategy = adaptive;
 	int stderr = dup(2), fd[2];
     int piped = pipe2(fd, O_NONBLOCK);
     dup2(fd[1], 2);
@@ -333,19 +333,19 @@ TEST(push_swap, itShouldPrintProgramState) {
 	ASSERT_STREQ("[bench] disorder:  40.00%\n", line);
 	free(line);
 
-	line = ft_substr(buffer, 26, 38 + sqrt_symbol_bytes);
-	ASSERT_STREQ("[bench] strategy:  Adaptative / O(n√n)\n", line);
+	line = ft_substr(buffer, 26, 36 + sqrt_symbol_bytes);
+	ASSERT_STREQ("[bench] strategy:  Adaptive / O(n√n)\n", line);
 	free(line);
 
-	line = ft_substr(buffer, 64 + sqrt_symbol_bytes, 23);
+	line = ft_substr(buffer, 62 + sqrt_symbol_bytes, 23);
 	ASSERT_STREQ("[bench] total_ops:  13\n", line);
 	free(line);
 
-	line = ft_substr(buffer, 87 + sqrt_symbol_bytes, 47);
+	line = ft_substr(buffer, 85 + sqrt_symbol_bytes, 47);
 	ASSERT_STREQ("[bench] sa:  0  sb:  0  ss:  0  pa:  5  pb:  5\n", line);
 	free(line);
 
-	line = ft_substr(buffer, 134 + sqrt_symbol_bytes, 58);
+	line = ft_substr(buffer, 132 + sqrt_symbol_bytes, 58);
 	ASSERT_STREQ("[bench] ra:  2  rb:  1  rr:  0  rra:  0  rrb:  0  rrr:  0\n", line);
 	free(line);
 	

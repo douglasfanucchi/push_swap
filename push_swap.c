@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 17:08:07 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/18 19:42:05 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:30:42 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_program_print(const t_program *program)
 	int		count_ops[11];
 	char	*strategy_label;
 
-	strategy_label = "Adaptative";
+	strategy_label = "Adaptive";
 	if (program->strategy == simple)
 		strategy_label = "Simple";
 	if (program->strategy == medium)

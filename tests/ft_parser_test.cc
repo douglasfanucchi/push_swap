@@ -24,7 +24,7 @@ TEST(ft_parser, itShouldNormalizeAnIntegerArray) {
 	free(arr.elements);
 }
 
-TEST(ft_parser, itShouldDefineStrategyAsAdaptativeAndBenchAsFalseWhenNotSpecifyingAnything) {
+TEST(ft_parser, itShouldDefineStrategyAsAdaptiveAndBenchAsFalseWhenNotSpecifyingAnything) {
 	t_program program;
 	const char *argv[] = {
 		"push_swap",
@@ -34,23 +34,23 @@ TEST(ft_parser, itShouldDefineStrategyAsAdaptativeAndBenchAsFalseWhenNotSpecifyi
 
 	ft_parse_flags(&program, argv + 1);
 
-	ASSERT_EQ(adaptative, program.strategy);
+	ASSERT_EQ(adaptive, program.strategy);
 	ASSERT_FALSE(program.bench);
 }
 
-TEST(ft_parser, itShouldDefineStrategyAsAdaptativeAndBenchAsTrueWhenNotSpecifyingBothValues) {
+TEST(ft_parser, itShouldDefineStrategyAsAdaptiveAndBenchAsTrueWhenNotSpecifyingBothValues) {
 	t_program program;
 	const char *argv[] = {
 		"push_swap",
 		"--bench",
-		"--adaptative",
+		"--adaptive",
 		"1",
 		NULL
 	};
 
 	ft_parse_flags(&program, argv + 1);
 
-	ASSERT_EQ(adaptative, program.strategy);
+	ASSERT_EQ(adaptive, program.strategy);
 	ASSERT_TRUE(program.bench);
 }
 
@@ -93,7 +93,7 @@ TEST(ft_parser, itShouldCreateAStackWithNormalizedNumbersWhenInputHasFlagParamet
 	t_stack	stack;
 	const char *argv[] = {
 		"push_swap",
-		"--adaptative",
+		"--adaptive",
 		"1239812",
 		"-129312",
 		"3",

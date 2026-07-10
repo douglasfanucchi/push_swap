@@ -21,7 +21,7 @@ TEST(ft_parser_utils, itShouldReturnTrueWhenInputIsAFlag) {
 }
 
 TEST(ft_parser_utils, itShouldReturnTrueWhenStringIsAFlag) {
-	const char *flag = "--adaptative";
+	const char *flag = "--adaptive";
 
 	t_bool result = ft_is_valid_flag(flag);
 
@@ -29,7 +29,7 @@ TEST(ft_parser_utils, itShouldReturnTrueWhenStringIsAFlag) {
 }
 
 TEST(ft_parser_utils, itShouldReturnFalseWhenStringIsNotAFlag) {
-	const char *flag = "adaptative";
+	const char *flag = "adaptive";
 
 	t_bool result = ft_is_valid_flag(flag);
 
@@ -53,8 +53,8 @@ TEST(ft_parser_utils, itShouldReturnFalseWhenStringIsFlagButInvalid) {
 	ASSERT_FALSE(result);
 }
 
-TEST(ft_parser_utils, itShouldReturnTrueWhenStringIsAdaptativeFlag) {
-	const char *flag = "--adaptative";
+TEST(ft_parser_utils, itShouldReturnTrueWhenStringIsAdaptiveFlag) {
+	const char *flag = "--adaptive";
 
 	t_bool result = ft_is_valid_flag(flag);
 
@@ -199,13 +199,13 @@ TEST(ft_parser_utils, itShouldUpdateBenchStateInTheProgramWhenFlagIsBenchRelated
 	ASSERT_EQ(TRUE, program.bench);
 }
 
-TEST(ft_parser_utils, itShouldSetStrategyAsAdaptativeWhenInputIsAdaptativeFlag) {
-	const char *input = "--adaptative";
+TEST(ft_parser_utils, itShouldSetStrategyAsAdaptiveWhenInputIsAdaptiveFlag) {
+	const char *input = "--adaptive";
 	t_program	program;
 
 	ft_program_flag_update(input, &program);
 
-	ASSERT_EQ(adaptative, program.strategy);
+	ASSERT_EQ(adaptive, program.strategy);
 }
 
 TEST(ft_parser_utils, itShouldSetStrategyAsSimpleWhenInputIsSimpleFlag) {

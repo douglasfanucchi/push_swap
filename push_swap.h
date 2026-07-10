@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/07/10 17:21:21 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:30:51 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef enum e_strategy {
 	simple,
 	medium,
 	complex,
-	adaptative
+	adaptive
 }	t_strategy;
 
 typedef struct s_program {
