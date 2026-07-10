@@ -164,3 +164,16 @@ TEST(ft_is_sorted, itShouldCheckForUnsortedStack) {
 	ASSERT_FALSE(result);
 	ft_stack_clear(&stack);
 }
+
+TEST(ft_is_sorted, itShouldCheckForHalfUnsortedStack) {
+	t_stack	stack;
+	ft_stack_init(&stack);
+	ft_stack_push(&stack, 42);
+	ft_stack_push(&stack, 43);
+	ft_stack_push(&stack, 41);
+
+	int	result = ft_is_sorted(&stack);
+
+	ASSERT_FALSE(result);
+	ft_stack_clear(&stack);
+}
