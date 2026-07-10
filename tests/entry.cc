@@ -14,3 +14,4 @@
 #include "ft_reverse_rotate_test.cc"
 #include "ft_algorithm_n2_test.cc"
 #include "ft_execute_algorithms_test.cc"
+#include "ft_stack_operations_2_test.cc"
