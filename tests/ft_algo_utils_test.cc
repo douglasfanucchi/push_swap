@@ -142,3 +142,13 @@ TEST(ft_move_ith_to, itShouldMoveAnElementFromTopOfTheStackBToTheEndByRotate) {
 	ft_stack_clear(&b);
 }
 
+TEST(ft_is_sorted, itShouldEvaluateStackWithSingleElementAsSorted) {
+	t_stack	stack;
+	ft_stack_init(&stack);
+	ft_stack_push(&stack, 42);
+
+	int	result = ft_is_sorted(&stack);
+
+	ASSERT_TRUE(result);
+	ft_stack_clear(&stack);
+}
