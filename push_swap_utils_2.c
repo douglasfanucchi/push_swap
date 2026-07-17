@@ -30,3 +30,8 @@ t_bool	ft_eq(int a, int b)
 {
 	return (a == b);
 }
+
+t_bool	ft_gt(int a, int b)
+{
+	return (b > a);
+}
