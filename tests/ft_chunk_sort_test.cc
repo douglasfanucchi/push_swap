@@ -123,3 +123,23 @@ TEST(ft_push_range, itShouldPushToStackAOnlyElementsWithinTheRange) {
     ft_stack_clear(&b);
     ft_state_clear(&state);
 }
+
+TEST(ft_reverse_insertion_sort_substack, itShouldSortInDescendingOrderSubstackWithSizeOne) {
+    t_stack a;
+    t_stack b;
+    t_state state;
+    ft_stack_init(&a);
+    ft_stack_init(&b);
+    ft_stack_push(&b, 0);
+    ft_state_init(&state);
+
+    ft_reverse_insertion_sort_substack(&a, &b, &state, 1);
+
+    ASSERT_EQ(1, b.size);
+    ASSERT_EQ(0, a.size);
+    ASSERT_EQ(0, ft_stack_peek(&b));
+    ASSERT_EQ(0, state.total_ops);
+    ft_stack_clear(&a);
+    ft_stack_clear(&b);
+    ft_state_clear(&state);
+}
