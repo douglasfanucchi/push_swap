@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 int	ft_abs(int n)
 {
 	if (n < 0)
@@ -22,4 +24,9 @@ int	ft_min(int a, int b)
 	if (a < b)
 		return (a);
 	return (b);
+}
+
+t_bool	ft_eq(int a, int b)
+{
+	return (a == b);
 }

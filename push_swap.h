@@ -146,5 +146,6 @@ int				ft_min(int a, int b);
 t_bool			ft_is_sorted(const t_stack *stack);
 void			ft_move_to_top(t_state *state, t_stack *stack, int index,
 					t_operations op);
+t_bool			ft_eq(int a, int b);
 
 #endif
