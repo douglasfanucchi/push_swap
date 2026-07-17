@@ -194,3 +194,38 @@ TEST(ft_reverse_insertion_sort_substack, itShouldSortInDescendingOrderSubstackWi
     ft_stack_clear(&b);
     ft_state_clear(&state);
 }
+
+TEST(ft_reverse_insertion_sort_substack, itShouldSortInDescendingOrderSubstackWithSizeThree) {
+    t_stack a;
+    t_stack b;
+    t_state state;
+    ft_stack_init(&a);
+    ft_stack_init(&b);
+    ft_stack_push(&b, 1);
+    ft_stack_push(&b, 2);
+    ft_stack_push(&b, 0);
+    ft_state_init(&state);
+
+    ft_reverse_insertion_sort_substack(&a, &b, &state, 3);
+
+    ASSERT_EQ(9, state.total_ops);
+    ASSERT_STREQ("pa", (char *)state.ops->content);
+    ASSERT_STREQ("pa", (char *)state.ops->next->content);
+    ASSERT_STREQ("sa", (char *)state.ops->next->next->content);
+    ASSERT_STREQ("ra", (char *)state.ops->next->next->next->content);
+    ASSERT_STREQ("pa", (char *)state.ops->next->next->next->next->content);
+    ASSERT_STREQ("rra", (char *)state.ops->next->next->next->next->next->content);
+    ASSERT_STREQ("pb", (char *)state.ops->next->next->next->next->next->next->content);
+    ASSERT_STREQ("pb", (char *)state.ops->next->next->next->next->next->next->next->content);
+    ASSERT_STREQ("pb", (char *)state.ops->next->next->next->next->next->next->next->next->content);
+    ASSERT_EQ(3, b.size);
+    ASSERT_EQ(0, a.size);
+    ASSERT_EQ(2, ft_stack_peek(&b));
+    ft_stack_rotate(&b);
+    ASSERT_EQ(1, ft_stack_peek(&b));
+    ft_stack_rotate(&b);
+    ASSERT_EQ(0, ft_stack_peek(&b));
+    ft_stack_clear(&a);
+    ft_stack_clear(&b);
+    ft_state_clear(&state);
+}
