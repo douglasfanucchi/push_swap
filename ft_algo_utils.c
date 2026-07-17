@@ -63,3 +63,31 @@ t_bool	ft_is_sorted(const t_stack *stack)
 	ft_stack_clear(&stack_cpy);
 	return (TRUE);
 }
+
+void	ft_move_to_top(t_state *state, t_stack *stack, int index,
+	t_operations op)
+{
+	int	sum;
+
+	sum = 1;
+	if (index <= stack->size / 2)
+		sum = -1;
+	while (index % stack->size)
+	{
+		if (sum > 0)
+		{
+			if (op == ra)
+				ft_exec_operation(state, stack, NULL, ft_reverse_rotate_a);
+			else
+				ft_exec_operation(state, NULL, stack, ft_reverse_rotate_b);
+		}
+		else
+		{
+			if (op == ra)
+				ft_exec_operation(state, stack, NULL, ft_rotate_a);
+			else
+				ft_exec_operation(state, NULL, stack, ft_rotate_b);
+		}
+		index += sum;
+	}
+}
