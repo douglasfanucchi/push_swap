@@ -150,5 +150,7 @@ int				ft_push_range(int *range, t_stack **stacks,
 					t_state *state, t_operations op);
 t_bool			ft_eq(int a, int b);
 t_bool			ft_gt(int a, int b);
+void			ft_reverse_insertion_sort_substack(t_stack *a, t_stack *b,
+					t_state *state, int size);
 
 #endif
