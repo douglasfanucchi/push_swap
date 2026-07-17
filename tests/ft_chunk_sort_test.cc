@@ -88,3 +88,38 @@ TEST(ft_push_range, itShouldPushAllElementsFromStackBToStackA) {
     ft_stack_clear(&a);
     ft_state_clear(&state);
 }
+
+TEST(ft_push_range, itShouldPushToStackAOnlyElementsWithinTheRange) {
+    t_stack *stacks[2];
+    t_stack a;
+    t_stack b;
+    t_state state;
+    ft_state_init(&state);
+    ft_stack_init(&a);
+    ft_stack_init(&b);
+    ft_stack_push(&b, 0);
+    ft_stack_push(&b, 5);
+    ft_stack_push(&b, 1);
+    ft_stack_push(&b, 3);
+    ft_stack_push(&b, 2);
+    ft_stack_push(&b, 4);
+    int range[2];
+    range[0] = 3;
+    range[1] = 5;
+    stacks[0] = &b;
+    stacks[1] = &a;
+
+    int result = ft_push_range(range, stacks, &state, pa);
+
+    ASSERT_EQ(3, result);
+    ASSERT_EQ(3, a.size);
+    ASSERT_EQ(3, b.size);
+    ASSERT_EQ(5, ft_stack_peek(&a));
+    ft_stack_rotate(&a);
+    ASSERT_EQ(3, ft_stack_peek(&a));
+    ft_stack_rotate(&a);
+    ASSERT_EQ(4, ft_stack_peek(&a));
+    ft_stack_clear(&a);
+    ft_stack_clear(&b);
+    ft_state_clear(&state);
+}
