@@ -112,3 +112,32 @@ void	ft_reverse_insertion_sort_substack(t_stack *a, t_stack *b,
 	while (substack.size-- > 0)
 		ft_exec_operation(state, a, b, ft_push_b);
 }
+
+t_state	ft_chunk_sort(t_stack *a, t_stack *b)
+{
+	t_state	state;
+	int		i;
+	int		_sqrt;
+	int		range[2];
+	t_stack	*stacks[2];
+
+	ft_state_init(&state);
+	_sqrt = ft_sqrt(a->size);
+	i = -1;
+	range[0] = 0;
+	stacks[0] = a;
+	stacks[1] = b;
+	while (++i < _sqrt)
+	{
+		range[1] = range[0] + _sqrt - 1;
+		ft_push_range(range, stacks, &state, pb);
+		ft_reverse_insertion_sort_substack(a, b, &state, _sqrt);
+		range[0] += _sqrt;
+	}
+	while (a->size)
+		ft_exec_operation(&state, a, b, ft_push_b);
+	ft_reverse_insertion_sort_substack(a, b, &state, b->size - (_sqrt * _sqrt));
+	while (b->size)
+		ft_exec_operation(&state, a, b, ft_push_a);
+	return (state);
+}
