@@ -152,5 +152,6 @@ t_bool			ft_eq(int a, int b);
 t_bool			ft_gt(int a, int b);
 void			ft_reverse_insertion_sort_substack(t_stack *a, t_stack *b,
 					t_state *state, int size);
+int				ft_sqrt(int n);
 
 #endif
