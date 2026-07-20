@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_execute_algorithms.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fanucchi <fanucchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 17:31:35 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/07/10 18:30:51 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/20 16:28:11 by fanucchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_initialize_algorithms(t_list *algorithms[3])
 	algorithms[medium] = NULL;
 	algorithms[complex] = NULL;
 	ft_lstadd_back(&algorithms[simple], ft_lstnew(ft_bubble_sort));
-	ft_lstadd_back(&algorithms[medium], ft_lstnew(ft_bubble_sort));
+	ft_lstadd_back(&algorithms[medium], ft_lstnew(ft_chunk_sort));
 	ft_lstadd_back(&algorithms[complex], ft_lstnew(ft_bubble_sort));
 }
 
