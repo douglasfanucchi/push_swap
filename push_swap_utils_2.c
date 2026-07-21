@@ -35,3 +35,15 @@ t_bool	ft_gt(int a, int b)
 {
 	return (b > a);
 }
+
+int	ft_sqrt(int n)
+{
+	int	i;
+
+	i = 1;
+	while (i * i < n)
+		i++;
+	if (i * i > n)
+		return (i - 1);
+	return (i);
+}
