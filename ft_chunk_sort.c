@@ -3,63 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chunk_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fanucchi <fanucchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:43:35 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/06/30 12:43:35 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/20 22:13:12 by fanucchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static t_arr	get_numbers(int *range, t_stack *stack)
-{
-	t_arr	numbers;
-	int		i;
-
-	numbers.elements = malloc(sizeof(int) * (range[1] - range[0] + 1));
-	numbers.len = 0;
-	i = 0;
-	while (i < stack->size)
-	{
-		if (ft_stack_peek(stack) >= range[0]
-			&& ft_stack_peek(stack) <= range[1])
-		{	
-			((int *)numbers.elements)[numbers.len] = ft_stack_peek(stack);
-			numbers.len++;
-		}
-		ft_stack_rotate(stack);
-		i++;
-	}
-	return (numbers);
-}
-
-int	ft_push_range(int *range, t_stack **stacks, t_state *state,
-	t_operations op)
-{
-	t_arr			numbers;
-	int				i;
-	t_operations	rotate;
-	int				pos;
-
-	rotate = ra;
-	if (op == pa)
-		rotate = rb;
-	numbers = get_numbers(range, stacks[0]);
-	i = 0;
-	while (i < numbers.len)
-	{
-		pos = ft_stack_find(stacks[0], ((int *)numbers.elements)[i], ft_eq);
-		ft_move_to_top(state, stacks[0], pos, rotate);
-		if (op == pb)
-			ft_exec_operation(state, stacks[0], stacks[1], ft_push_b);
-		else
-			ft_exec_operation(state, stacks[1], stacks[0], ft_push_a);
-		i++;
-	}
-	free(numbers.elements);
-	return (numbers.len);
-}
 
 static t_bool	is_reversed(t_stack *stack, int size)
 {
@@ -83,33 +34,55 @@ static t_bool	is_reversed(t_stack *stack, int size)
 	return (is_reverse_sorted);
 }
 
+static int	ft_get_pos(t_stack *a, int substack_size, int min, int top)
+{
+	t_substack	substack;
+	int			pos;
+
+	substack.start = ft_stack_find(a, min, ft_eq);
+	if (substack.start == 0)
+		substack.size = substack_size;
+	else
+		substack.size = a->size - substack.start;
+	pos = ft_stack_find_offset(a, substack, top, ft_gt);
+	pos += substack.start;
+	if (pos == substack.start - 1 && substack.start != 0)
+	{
+		substack.start = 0;
+		substack.size = substack_size - substack.size;
+		pos = ft_stack_find_offset(a, substack, top, ft_gt);
+		pos += substack.start;
+	}
+	if (pos == substack.start - 1)
+		pos = substack.size - 1;
+	return (pos);
+}
+
 void	ft_reverse_insertion_sort_substack(t_stack *a, t_stack *b,
 	t_state *state, int size)
 {
 	int			pos;
-	t_substack	substack;
 	int			min;
+	int			i;
 
 	if (is_reversed(b, size))
 		return ;
 	ft_exec_operation(state, a, b, ft_push_a);
-	substack.start = 0;
 	min = ft_stack_peek(a);
-	substack.size = 0;
-	while (++substack.size < size)
+	i = 1;
+	while (i < size)
 	{
-		pos = ft_stack_find_offset(a, substack, ft_stack_peek(b), ft_gt);
+		pos = ft_get_pos(a, i, min, ft_stack_peek(b));
 		if (ft_stack_peek(b) < min)
 			min = ft_stack_peek(b);
-		if (pos == -1)
-			pos = substack.size - 1;
 		ft_move_to_top(state, a, pos, ra);
 		ft_exec_operation(state, a, b, ft_push_a);
 		if (ft_stack_peek(a) > ft_stack_get_nth_number(a, 2))
 			ft_exec_operation(state, a, b, ft_swap_a);
-		ft_move_to_top(state, a, ft_stack_find(a, min, ft_eq), ra);
+		i++;
 	}
-	while (substack.size-- > 0)
+	ft_move_to_top(state, a, ft_stack_find(a, min, ft_eq), ra);
+	while (i-- > 0)
 		ft_exec_operation(state, a, b, ft_push_b);
 }
 
