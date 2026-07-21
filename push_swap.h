@@ -129,6 +129,7 @@ t_operations	ft_reverse_rotate_a(t_stack *a, t_stack *b);
 t_operations	ft_reverse_rotate_b(t_stack *a, t_stack *b);
 t_operations	ft_reverse_rotate_rrr(t_stack *a, t_stack *b);
 t_state			ft_bubble_sort(t_stack *a, t_stack *b);
+t_state			ft_insertion_sort(t_stack *a, t_stack *b);
 t_state			ft_chunk_sort(t_stack *a, t_stack *b);
 int				ft_stack_get_nth_number(const t_stack *stack, int n);
 int				ft_stack_find(const t_stack *stack, int n,
