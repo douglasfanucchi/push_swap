@@ -56,7 +56,8 @@ int	main(int argc, const char **argv)
 	program.disorder = ft_compute_disorder(argv + 1);
 	ft_parse_flags(&program, argv + 1);
 	a = ft_parse_numbers(argv + 1);
-	program.state = ft_execute_algorithms(program.strategy, program.disorder, &a);
+	program.state = ft_execute_algorithms(program.strategy, program.disorder,
+			&a);
 	ft_state_print(&program.state);
 	if (program.bench)
 		ft_program_print(&program);
