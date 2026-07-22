@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 17:31:35 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/07/22 15:05:23 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/22 15:57:39 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static t_state	exec_algorithms(t_list *algorithms, const t_stack *a)
 	t_stack	a_cpy;
 
 	ft_state_init(&state);
+	if (ft_is_sorted(a))
+		return (state);
 	while (algorithms)
 	{
 		a_cpy = ft_stack_copy(a);
