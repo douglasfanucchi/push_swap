@@ -6,7 +6,7 @@
 /*   By: dode-lim <dode-lim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 15:46:46 by dode-lim          #+#    #+#             */
-/*   Updated: 2026/07/22 15:04:31 by dode-lim         ###   ########.fr       */
+/*   Updated: 2026/07/22 16:50:21 by dode-lim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,7 @@ t_operations	ft_reverse_rotate_b(t_stack *a, t_stack *b);
 t_operations	ft_reverse_rotate_rrr(t_stack *a, t_stack *b);
 t_state			ft_insertion_sort(t_stack *a, t_stack *b);
 t_state			ft_chunk_sort(t_stack *a, t_stack *b);
+t_state			ft_sort_small(const t_stack *a);
 int				ft_stack_get_nth_number(const t_stack *stack, int n);
 int				ft_stack_find(const t_stack *stack, int n,
 					t_bool (*f)(int, int));
