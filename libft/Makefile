@@ -45,7 +45,7 @@ SRCS        = ft_isalpha.c ft_isalnum.c ft_isascii.c ft_isdigit.c ft_isspace.c \
 
 OBJS        = $(SRCS:.c=.o)
 
-all: $(FT_PRINTF) $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
