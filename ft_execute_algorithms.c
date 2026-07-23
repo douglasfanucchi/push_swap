@@ -19,7 +19,7 @@ void	ft_initialize_algorithms(t_list *algorithms[3])
 	algorithms[complex] = NULL;
 	ft_lstadd_back(&algorithms[simple], ft_lstnew(ft_insertion_sort));
 	ft_lstadd_back(&algorithms[medium], ft_lstnew(ft_chunk_sort));
-	ft_lstadd_back(&algorithms[complex], ft_lstnew(ft_insertion_sort));
+	ft_lstadd_back(&algorithms[complex], ft_lstnew(ft_radix_sort));
 }
 
 static t_state	exec(t_state (*algorithm)(t_stack *, t_stack *), t_stack *a)
