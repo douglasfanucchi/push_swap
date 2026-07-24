@@ -125,6 +125,22 @@ TEST(ft_parser_utils, itShouldReturnFalseWhenInputHasMoreThanOneSign) {
 	ASSERT_FALSE(result);
 }
 
+TEST(ft_parser_utils, itShouldReturnFalseWhenInputHasOnlyASignWithoutANumber) {
+	const char *input = "-";
+
+	t_bool result = ft_is_valid_numeric_set(input);
+
+	ASSERT_FALSE(result);
+}
+
+TEST(ft_parser_utils, itShouldReturnFalseWhenInputHasMultipleValidNumbersButOneSignWithoutANumber) {
+	const char *input = "13 42 -9 +11      -    99";
+
+	t_bool result = ft_is_valid_numeric_set(input);
+
+	ASSERT_FALSE(result);
+}
+
 TEST(ft_parser_utils, itShouldReturnFalseWhenInputHasAnyNonNumericChar) {
 	const char *input = "a42";
 
