@@ -39,29 +39,30 @@ t_bool	ft_is_valid_flag(const char *str)
 	return (FALSE);
 }
 
-t_bool	ft_is_valid_numeric_set(const char *str)
+t_bool	ft_is_valid_numeric_set(const char *s)
 {
 	size_t	i;
 	long	n;
 
 	i = 0;
-	if (!str[i])
+	if (!s[i])
 		return (FALSE);
-	while (str[i] == ' ')
+	while (s[i] == ' ')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (s[i] == '-' || s[i] == '+')
 		i++;
-	while (str[i] && str[i] != ' ')
+	if (i > 0 && (s[i - 1] == '+' || s[i - 1] == '-') && !ft_isdigit(s[i]))
+		return (FALSE);
+	while (s[i] && s[i] != ' ')
 	{
-		if (!ft_isdigit(str[i]))
+		if (!ft_isdigit(s[i++]))
 			return (FALSE);
-		i++;
 	}
-	while (str[i] == ' ')
+	while (s[i] == ' ')
 		i++;
-	if (str[i] && !ft_is_valid_numeric_set(str + i))
+	if (s[i] && !ft_is_valid_numeric_set(s + i))
 		return (FALSE);
-	n = ft_atol(str);
+	n = ft_atol(s);
 	if (n > INT_MAX || n < INT_MIN)
 		return (FALSE);
 	return (TRUE);
