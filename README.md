@@ -138,7 +138,7 @@ Once we have stack $B$ sorted on descending order, we just need to perform `pa` 
 
 Radix Sort fits in the $O(nlogn)$ complexity class and it is a good choice for this project due to its simplicity in adaptation.
 
-For radix sort, we will perform $k$ iterations, where $k$ is the amount of bits of the greatest number. On the $i-th$ iteration we need to make sure that stack $A$ is sorted in ascending order in regards to the $i$ least significant bits are sorted in ascending order. We can achieve that by checking if, on the $i-th$ iteration, the element on the top of stack $A$ has its $i-th$ bit as 0 or 1. If it's 0, we perform `pb`, otherwise `ra`. This will keep all numbers with 1 on the $i-th$ bit in the stack $A$ and numbers with 0 on the $i-th$ bit on stack $B$. After that, performing `pa` until the stack $B$ is empty, will result in a stack $A$ having all integers with 0 in the $i-th$ bit to be above all integers with 1 in the $i-th$ bit.
+For radix sort, we will perform $k$ iterations, where $k$ is the amount of bits of the greatest number. On the $i-th$ iteration we need to make sure that stack $A$ is sorted in ascending order in regards to the $i$ least significant bits. We can achieve that by checking if, on the $i-th$ iteration, the element on the top of stack $A$ has its $i-th$ bit as 0 or 1. If it's 0, we perform `pb`, otherwise `ra`. This will keep all numbers with 1 on the $i-th$ bit in the stack $A$ and numbers with 0 on the $i-th$ bit on stack $B$. After that, performing `pa` until the stack $B$ is empty, will result in a stack $A$ having all integers with 0 in the $i-th$ bit to be above all integers with 1 in the $i-th$ bit.
 
 ## Resources
 
